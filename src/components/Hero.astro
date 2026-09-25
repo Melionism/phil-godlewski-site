@@ -1,0 +1,129 @@
+---
+import { hero, socials } from '../content/site';
+import { imgSize } from '../lib/imgSize';
+import Icons from './Icons.astro';
+const bg = imgSize(hero.background);
+---
+<section class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true">
+    <img src={hero.background} alt="" width={bg.width} height={bg.height} fetchpriority="high" decoding="async" />
+  </div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="wrap hero__in">
+    <div class="hero__text">
+      <p class="hero__eyebrow">{hero.eyebrow}</p>
+      <h1 class="h1">
+        <span>{hero.firstName}</span>
+        <span class="hero__last">{hero.lastName}</span>
+      </h1>
+      <p class="lead">{hero.lead}</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href={hero.primaryCta.href}>{hero.primaryCta.label} <Icons name="arrow" /></a>
+        <a class="btn btn--ghost" href={hero.secondaryCta.href}>{hero.secondaryCta.label}</a>
+      </div>
+      <div class="hero__social">
+        <a href={socials.instagram.url} target="_blank" rel="noopener"><Icons name="instagram" /> {socials.instagram.handle}</a>
+        <a href={socials.threads.url} target="_blank" rel="noopener"><Icons name="threads" /> Threads</a>
+      </div>
+    </div>
+  </div>
+  <span class="sr-only">{hero.backgroundAlt}</span>
+  <p class="hero__scroll" aria-hidden="true">Scroll</p>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: calc(100svh - 72px);
+    display: grid;
+    align-content: center;
+    padding-block: clamp(56px, 10vh, 120px) clamp(80px, 12vh, 140px);
+    background: var(--bg);
+  }
+
+  /* фото: занимает правую часть, слева и снизу растворяется в фон */
+  .hero__bg {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: min(66vw, 1100px);
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 55%), linear-gradient(to top, transparent 0%, #000 28%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 55%), linear-gradient(to top, transparent 0%, #000 28%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+  .hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 78% 20%;
+    filter: grayscale(0.85) contrast(1.12) brightness(0.66);
+  }
+  /* багровое дыхание за фигурой */
+  .hero__glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(45% 55% at 72% 45%, rgba(200, 24, 42, 0.28), transparent 70%),
+      linear-gradient(180deg, rgba(7, 7, 10, 0.2) 0%, transparent 30%, transparent 70%, var(--bg) 100%);
+    mix-blend-mode: normal;
+  }
+
+  .hero__in { position: relative; width: 100%; }
+  .hero__text { max-width: 620px; }
+  .hero__eyebrow {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--ink-2);
+    margin-bottom: 26px;
+  }
+  .h1 span { display: block; }
+  .hero__last { color: var(--light); text-shadow: 0 0 40px rgba(255, 255, 255, 0.14); }
+  .lead { margin-top: 30px; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+  .hero__social { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 30px; font-size: 14px; font-weight: 600; color: var(--ink-3); }
+  .hero__social a { display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
+  .hero__social a:hover { color: var(--ink); }
+  .hero__social :global(svg) { width: 18px; height: 18px; }
+
+  .hero__scroll {
+    position: absolute;
+    left: var(--gutter);
+    bottom: 28px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-3);
+    padding-left: 44px;
+  }
+  .hero__scroll::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 32px;
+    height: 1px;
+    background: var(--ink-3);
+    animation: line 2.4s ease-in-out infinite;
+  }
+  @keyframes line { 0%, 100% { transform: scaleX(0.4); transform-origin: left; } 50% { transform: scaleX(1); } }
+
+  @media (max-width: 900px) {
+    .hero { min-height: auto; padding-top: 0; align-content: end; }
+    .hero__bg {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      height: 68vh;
+      max-height: 560px;
+      -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 45%);
+      mask-image: linear-gradient(to top, transparent 0%, #000 45%);
+    }
+    .hero__bg img { object-position: 70% 15%; }
+    .hero__in { margin-top: -22vh; }
+    .hero__scroll { display: none; }
+  }
+</style>

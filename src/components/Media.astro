@@ -1,0 +1,107 @@
+---
+import { media } from '../content/site';
+import { imgSize } from '../lib/imgSize';
+const show = media.items.length > 0;
+const bg = imgSize(media.background);
+---
+{show && (
+<section class="section media" id="media">
+  <div class="media__bg" aria-hidden="true">
+    <img src={media.background} alt="" width={bg.width} height={bg.height} loading="lazy" decoding="async" />
+  </div>
+  <div class="wrap media__in">
+    <div class="media__head reveal">
+      <div>
+        <p class="label">{media.label}</p>
+        <h2 class="h2">{media.heading}</h2>
+      </div>
+      <p class="lead">{media.text}</p>
+    </div>
+    <ul class="media__grid">
+      {media.items.map((m, i) => {
+        const size = imgSize(m.src);
+        const Tag = m.url ? 'a' : 'div';
+        return (
+          <li class="reveal" style={`transition-delay:${i * 60}ms`}>
+            <Tag class="media__item" href={m.url ?? undefined} target={m.url ? '_blank' : undefined} rel={m.url ? 'noopener' : undefined}>
+              <img src={m.src} alt={m.caption} width={size.width} height={size.height} loading="lazy" decoding="async" style={m.pos ? `object-position:${m.pos}` : undefined} />
+              <span class="media__cap">{m.caption}</span>
+            </Tag>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</section>
+)}
+
+<style>
+  .media { position: relative; overflow: hidden; }
+  .media__bg {
+    position: absolute;
+    inset: -6% 0;
+    pointer-events: none;
+    opacity: 0.55;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  }
+  .media__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+  .media__in { position: relative; }
+  .media__head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 64px);
+    align-items: end;
+    margin-bottom: 48px;
+  }
+  .media__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .media__item {
+    position: relative;
+    display: block;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    background: var(--surface);
+    outline: 1px solid var(--line);
+  }
+  .media__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.05) brightness(0.85);
+    transition: transform 0.9s var(--ease), filter 0.6s var(--ease);
+  }
+  .media__item:hover img { transform: scale(1.04); filter: grayscale(0) contrast(1) brightness(1); }
+  .media__item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(7, 7, 10, 0.9) 100%);
+    pointer-events: none;
+  }
+  .media__cap {
+    position: absolute;
+    z-index: 1;
+    inset: auto 16px 16px 16px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--light);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  @media (max-width: 820px) {
+    .media__head { grid-template-columns: 1fr; }
+    .media__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    /* нечётный последний кадр на двух колонках прячем */
+    .media__grid li:nth-child(odd):last-child { display: none; }
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Profile from '../components/Profile.astro';
+import Atom from '../components/Atom.astro';
+import Ecosystem from '../components/Ecosystem.astro';
+import Focus from '../components/Focus.astro';
+import Media from '../components/Media.astro';
+import Follow from '../components/Follow.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import { homeSchema } from '../lib/schema';
+
+const origin = Astro.site ? Astro.site.origin : '';
+---
+<Base path="/" jsonLd={homeSchema(origin)}>
+  <Nav />
+  <main>
+    <Hero />
+    <Profile />
+    <Atom />
+    <Ecosystem />
+    <Focus />
+    <Media />
+    <Follow />
+    <Contact />
+  </main>
+  <Footer />
+</Base>

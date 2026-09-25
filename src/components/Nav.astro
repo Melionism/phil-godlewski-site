@@ -1,0 +1,133 @@
+---
+import { nav, socials } from '../content/site';
+import Icons from './Icons.astro';
+---
+<header class="nav">
+  <div class="wrap nav__in">
+    <a href="#top" class="nav__brand" aria-label="Phil Godlewski — home">
+      <img class="nav__mark" src="/img/mask-icon.png" alt="" width="256" height="270" aria-hidden="true" /><span>Phil Godlewski</span>
+    </a>
+    <nav class="nav__links" aria-label="Sections">
+      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+    </nav>
+    <div class="nav__social">
+      <a href={socials.instagram.url} target="_blank" rel="noopener" aria-label="Instagram"><Icons name="instagram" /></a>
+      <a href={socials.threads.url} target="_blank" rel="noopener" aria-label="Threads"><Icons name="threads" /></a>
+    </div>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="mobile-menu" hidden>
+    {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+    <div class="nav__mobile-social">
+      <a href={socials.instagram.url} target="_blank" rel="noopener"><Icons name="instagram" /> Instagram</a>
+      <a href={socials.threads.url} target="_blank" rel="noopener"><Icons name="threads" /> Threads</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 70%, transparent);
+    backdrop-filter: saturate(140%) blur(16px);
+    -webkit-backdrop-filter: saturate(140%) blur(16px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .nav.is-scrolled { border-color: var(--line); }
+  .nav__in { display: flex; align-items: center; gap: 28px; height: 72px; }
+  .nav__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .nav__mark { width: 24px; height: auto; mix-blend-mode: screen; border-radius: 4px; }
+  .nav__links { display: flex; gap: 4px; margin-inline: auto; }
+  .nav__links a {
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--ink-2);
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav__links a:hover { background: rgba(255, 255, 255, 0.06); color: var(--ink); }
+  .nav__social { display: flex; gap: 4px; }
+  .nav__social a {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--ink-2);
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav__social a:hover { background: var(--accent); color: #fff; }
+  .nav__social :global(svg) { width: 20px; height: 20px; }
+
+  .nav__burger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+    cursor: pointer;
+    margin-inline-start: auto;
+  }
+  .nav__burger span { width: 22px; height: 1.5px; background: var(--ink); transition: transform 0.3s var(--ease); }
+  .nav__burger[aria-expanded='true'] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+  .nav__burger[aria-expanded='true'] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+
+  .nav__mobile[hidden] { display: none; }
+  .nav__mobile {
+    display: flex;
+    flex-direction: column;
+    padding: 8px var(--gutter) 24px;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .nav__mobile a { padding: 14px 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; border-bottom: 1px solid var(--line); }
+  .nav__mobile-social { display: flex; gap: 20px; padding-top: 16px; }
+  .nav__mobile-social a { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font); font-size: 15px; border: 0; padding: 0; }
+  .nav__mobile-social :global(svg) { width: 20px; height: 20px; }
+
+  @media (max-width: 820px) {
+    .nav__links, .nav__social { display: none; }
+    .nav__burger { display: flex; }
+    .nav__brand span { display: none; }
+  }
+</style>
+
+<script>
+  const header = document.querySelector<HTMLElement>('.nav');
+  const burger = document.querySelector<HTMLButtonElement>('.nav__burger');
+  const menu = document.getElementById('mobile-menu');
+  const onScroll = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  burger?.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!open));
+    if (menu) menu.hidden = open;
+  });
+  menu?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      burger?.setAttribute('aria-expanded', 'false');
+      if (menu) menu.hidden = true;
+    })
+  );
+</script>

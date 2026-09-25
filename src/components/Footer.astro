@@ -1,0 +1,28 @@
+---
+import { nav, socials, footer } from '../content/site';
+---
+<footer class="footer">
+  <div class="wrap footer__in">
+    <a href="#top" class="footer__brand"><img class="footer__mark" src="/img/mask-icon.png" alt="" width="256" height="270" aria-hidden="true" />Phil Godlewski</a>
+    <nav class="footer__nav" aria-label="Footer">
+      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+    </nav>
+    <div class="footer__social">
+      <a href={socials.instagram.url} target="_blank" rel="noopener">Instagram</a>
+      <a href={socials.threads.url} target="_blank" rel="noopener">Threads</a>
+    </div>
+    <p class="footer__note">{footer.note}</p>
+  </div>
+</footer>
+
+<style>
+  .footer { border-top: 1px solid var(--line); padding-block: 44px; font-size: 14px; color: var(--ink-2); }
+  .footer__in { display: grid; grid-template-columns: auto 1fr auto; gap: 16px 32px; align-items: center; }
+  .footer__brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 20px; }
+  .footer__mark { width: 20px; height: auto; mix-blend-mode: screen; border-radius: 4px; }
+  .footer__nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .footer__nav a:hover, .footer__social a:hover { color: var(--ink); }
+  .footer__social { display: flex; gap: 18px; font-weight: 700; }
+  .footer__note { grid-column: 1 / -1; color: var(--ink-3); }
+  @media (max-width: 820px) { .footer__in { grid-template-columns: 1fr; } }
+</style>

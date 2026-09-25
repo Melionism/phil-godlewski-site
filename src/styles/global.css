@@ -1,0 +1,190 @@
+/* ---------- tokens: noir ---------- */
+:root {
+  --bg: #07070a;
+  --bg-2: #0c0c11;
+  --surface: #111116;
+  --surface-2: #17171e;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.16);
+  --ink: #eceef2;
+  --ink-2: #a1a5ae;
+  --ink-3: #676b74;
+  --accent: #c8182a;
+  --accent-2: #ff3b4a;
+  --accent-glow: rgba(200, 24, 42, 0.45);
+  --light: #f4f2ee;
+
+  --font-display: 'Cormorant Variable', 'Cormorant Garamond', Georgia, serif;
+  --font: 'Manrope Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius: 18px;
+  --radius-sm: 10px;
+  --shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 50px -20px rgba(0, 0, 0, 0.8);
+  --shadow-lg: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 40px 90px -30px rgba(0, 0, 0, 0.9);
+
+  --max: 1180px;
+  --gutter: clamp(20px, 5vw, 56px);
+  --section: clamp(88px, 13vh, 160px);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- reset ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: var(--bg); }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  position: relative;
+  overflow-x: hidden;
+}
+/* film grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+}
+/* vignette */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+h1, h2, h3, h4, p { margin: 0; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; color: inherit; }
+::selection { background: var(--accent); color: #fff; }
+:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ---------- layout ---------- */
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--section); position: relative; }
+.section + .section { padding-top: 0; }
+
+/* section label: italic serif, not mono caps */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.01em;
+  color: var(--ink-2);
+  margin-bottom: 22px;
+}
+.label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--accent-2);
+  box-shadow: 0 0 12px var(--accent-2);
+}
+
+.h1 {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 11vw, 148px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5.4vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  max-width: 18ch;
+}
+.h2 em, .h1 em { font-style: italic; font-weight: 500; color: var(--accent-2); }
+.h3 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.lead {
+  font-size: clamp(17px, 1.9vw, 20px);
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 54ch;
+}
+.muted { color: var(--ink-2); }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  border: 1px solid transparent;
+  transition: transform 0.35s var(--ease), background 0.25s, border-color 0.25s, box-shadow 0.35s var(--ease), color 0.25s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn--primary { background: var(--accent); color: #fff; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, 0 10px 40px -10px var(--accent-glow); }
+.btn--primary:hover { background: var(--accent-2); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 16px 50px -10px var(--accent-glow); }
+.btn--accent { background: var(--light); color: #0a0a0c; }
+.btn--accent:hover { background: #fff; }
+.btn--ghost { border-color: var(--line-2); color: var(--ink); background: transparent; }
+.btn--ghost:hover { border-color: var(--ink); background: rgba(255, 255, 255, 0.04); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+/* ---------- cards ---------- */
+.card {
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 59, 74, 0.35);
+  box-shadow: var(--shadow-lg), 0 0 60px -20px var(--accent-glow);
+}
+
+/* ---------- reveal on scroll ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; } }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

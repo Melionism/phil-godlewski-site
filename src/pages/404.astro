@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Page not found — Phil Godlewski" description="This page does not exist." path="/404" noindex>
+  <Nav />
+  <main class="wrap nf">
+    <p class="label">404</p>
+    <h1 class="h2">This page doesn’t exist.</h1>
+    <a class="btn btn--primary" href="/">Back to home</a>
+  </main>
+  <Footer />
+</Base>
+<style>
+  .nf { min-height: 60vh; display: grid; align-content: center; gap: 20px; justify-items: start; padding-block: 80px; }
+</style>

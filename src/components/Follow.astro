@@ -1,0 +1,60 @@
+---
+import { follow, socials } from '../content/site';
+import Icons from './Icons.astro';
+import { imgSize } from '../lib/imgSize';
+const channels = [socials.instagram, socials.threads];
+const icon = { Instagram: 'instagram', Threads: 'threads' } as const;
+const bg = imgSize(follow.background);
+---
+<section class="section followsec" id="follow">
+  <div class="followsec__bg" aria-hidden="true">
+    <img src={follow.background} alt="" width={bg.width} height={bg.height} loading="lazy" decoding="async" />
+  </div>
+  <div class="wrap followsec__in">
+    <div class="follow reveal">
+      <div>
+        <p class="label">{follow.label}</p>
+        <h2 class="h2">{follow.heading}</h2>
+        <p class="lead follow__text">{follow.text}</p>
+      </div>
+      <ul class="follow__list">
+        {channels.map((c) => (
+          <li>
+            <a class="card follow__card" href={c.url} target="_blank" rel="noopener">
+              <span class="follow__icon"><Icons name={icon[c.label as keyof typeof icon]} /></span>
+              <span class="follow__name">{c.label}</span>
+              <span class="follow__handle">{c.handle}</span>
+              <Icons name="arrow" class="follow__arrow" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .followsec { position: relative; overflow: hidden; }
+  .followsec__bg {
+    position: absolute;
+    inset: -6% 0;
+    pointer-events: none;
+    opacity: 0.42;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  }
+  .followsec__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7, 7, 10, 0.85) 0%, rgba(7, 7, 10, 0.35) 55%, transparent 100%); }
+  .followsec__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+  .followsec__in { position: relative; }
+  .follow { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+  .follow__text { margin-top: 18px; }
+  .follow__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .follow__card { display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: auto auto; column-gap: 18px; align-items: center; padding: 20px 24px; }
+  .follow__icon { grid-row: span 2; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line-2); color: var(--light); }
+  .follow__icon :global(svg) { width: 22px; height: 22px; }
+  .follow__name { font-family: var(--font-display); font-weight: 600; font-size: 24px; }
+  .follow__handle { grid-column: 2; color: var(--ink-2); font-size: 14px; }
+  :global(.follow__arrow) { grid-row: span 2; width: 22px; height: 22px; color: var(--ink-3); transition: transform 0.3s var(--ease), color 0.2s; }
+  .follow__card:hover :global(.follow__arrow) { transform: translateX(4px); color: var(--accent-2); }
+  @media (max-width: 820px) { .follow { grid-template-columns: 1fr; } }
+</style>
