@@ -18,8 +18,8 @@
 		output stdout
 	}
 
-	# Заменить на реальный домен, если нужен редирект www -> apex.
-	@www host www.philgodlewski.com
+	# Домен: philgodlewski.link (www -> apex)
+	@www host www.philgodlewski.link
 	@trailing path_regexp trailing ^(.+)/$
 	@asset path /_astro/*
 	@static path *.jpg *.jpeg *.png *.webp *.avif *.svg *.ico *.woff *.woff2 *.pdf
@@ -27,8 +27,10 @@
 
 	route {
 		respond /healthz "ok" 200
-		redir @www https://philgodlewski.com{uri} permanent
+		redir @www https://philgodlewski.link{uri} permanent
 		redir @trailing {re.trailing.1} permanent
+		# /index.html — дубль главной
+		redir /index.html / permanent
 
 		encode zstd gzip
 

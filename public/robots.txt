@@ -27,5 +27,5 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-# TODO: заменить домен при деплое
-Sitemap: https://philgodlewski.com/sitemap-index.xml
+# Домен: philgodlewski.link
+Sitemap: https://philgodlewski.link/sitemap-index.xml

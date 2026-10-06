@@ -1,0 +1,78 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { imgSize } from '../../lib/imgSize';
+import { site } from '../../content/site';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = (await getCollection('blog', ({ data }) => !data.draft || import.meta.env.DEV))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  // Нет постов — страницы /blog не существует (paginate с пустым массивом всё равно создаёт страницу)
+  if (posts.length === 0) return [];
+  return paginate(posts, { pageSize: 9 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const title = page.currentPage > 1 ? `Blog — page ${page.currentPage} — ${site.name}` : `Blog — ${site.name} on technology, sports, AI and design`;
+const description = 'Notes and updates from Phil Godlewski — owner and co-founder of ATOM Ventures Group — on technology, sports, AI, design and the ATOM ecosystem.';
+---
+<Base title={title} description={description} path={page.url.current}>
+  <Nav />
+  <main class="wrap blog">
+    <header class="blog__head reveal is-in">
+      <p class="label">Blog</p>
+      <h1 class="h2">Notes from the ecosystem</h1>
+      <p class="lead">{description}</p>
+    </header>
+    <ul class="blog__grid">
+      {page.data.map((post) => {
+        const cover = post.data.cover ? imgSize(post.data.cover) : null;
+        return (
+          <li>
+            <a class="card post" href={`/blog/${post.id}`}>
+              {post.data.cover && cover && (
+                <img class="post__cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} width={cover.width} height={cover.height} loading="lazy" decoding="async" />
+              )}
+              <div class="post__body">
+                <time class="post__date" datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
+                <h2 class="h3">{post.data.title}</h2>
+                <p class="post__desc">{post.data.description}</p>
+                {post.data.tags.length > 0 && <p class="post__tags">{post.data.tags.map((t) => <span>{t}</span>)}</p>}
+              </div>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+    {page.lastPage > 1 && (
+      <nav class="blog__pager" aria-label="Pagination">
+        {page.url.prev ? <a class="btn btn--ghost" href={page.url.prev}>Newer</a> : <span />}
+        <span class="muted">{page.currentPage} / {page.lastPage}</span>
+        {page.url.next ? <a class="btn btn--ghost" href={page.url.next}>Older</a> : <span />}
+      </nav>
+    )}
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .blog { padding-block: clamp(56px, 9vh, 110px) var(--section); }
+  .blog__head { max-width: 760px; margin-bottom: 48px; }
+  .blog__head .lead { margin-top: 18px; }
+  .blog__grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .post { display: flex; flex-direction: column; height: 100%; overflow: hidden; }
+  .post__cover { aspect-ratio: 16 / 9; width: 100%; object-fit: cover; border-bottom: 1px solid var(--line); filter: grayscale(0.6) contrast(1.05); transition: filter 0.6s var(--ease); }
+  .post:hover .post__cover { filter: none; }
+  .post__body { padding: 24px 26px 28px; display: grid; gap: 10px; }
+  .post__date { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--accent-2); }
+  .post__desc { color: var(--ink-2); font-size: 15px; }
+  .post__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .post__tags span { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+  .blog__pager { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; }
+  @media (max-width: 900px) { .blog__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .blog__grid { grid-template-columns: 1fr; } }
+</style>

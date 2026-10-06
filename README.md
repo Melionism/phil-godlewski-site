@@ -23,13 +23,24 @@ npm run preview   # проверить сборку локально
 | Портрет | положить файл в `public/img/`, в `hero.portrait` указать путь вида `/img/phil.jpg` |
 | Карточки проектов (название, описание, ссылка, логотип) | массив `ecosystem.list`. Логотип — файл в `public/img/logos/`. Белый логотип → `dark: true` |
 | Фото в блоке Media | массив `media.items`: `src` (файл в `public/img/photos/`), `caption`, `url` (ссылка на оригинал поста или `null`) |
-| Соцсети | объект `socials` |
+| Соцсети | объект `socials` + порядок в `socialOrder` (Instagram, Threads, Rumble, Telegram, Locals) |
 | Контакт-форма | `contact.formEndpoint` — адрес обработчика (Formspree / Web3Forms / свой). Пока пусто — показывается кнопка на Instagram |
 | Title / description / OG-картинка | объект `site` |
 
 После правок — `npm run build` и выложить `dist/` (или пересобрать Docker-образ).
 
 Правило из ТЗ: не добавлять даты, цифры, звания, географию и результаты проектов без подтверждения клиентом.
+
+## Блог
+
+Посты — Markdown-файлы в `src/content/blog/`. Шаблон с подсказками: `src/content/blog/_TEMPLATE.md` (файлы с `_` в начале не публикуются).
+
+1. Скопировать шаблон, назвать латиницей через дефис: `first-post.md` → адрес `/blog/first-post`.
+2. Заполнить шапку: `title` (≤70), `description` (50–170), `pubDate`, при желании `cover` (картинка в `public/img/blog/`), `tags`.
+3. Убрать `draft: true`. Черновики видны только в `npm run dev`, в сборку не попадают.
+4. `npm run build` или push в main.
+
+Пока опубликованных постов нет, страница `/blog` и пункт меню «Blog» не создаются автоматически.
 
 ## Деплой
 
@@ -45,7 +56,10 @@ src/
   lib/schema.ts        Schema.org Person + Organization
   lib/imgSize.ts       реальные размеры картинок на этапе сборки (против скачков вёрстки)
   styles/global.css    токены, типографика, кнопки, карточки
-  pages/index.astro    главная (единственная страница) и 404
+  pages/index.astro    главная и 404
+  pages/blog/          список постов (/blog, пагинация по 9) и страница поста (/blog/<id>)
+  content/blog/        посты блога (Markdown), _TEMPLATE.md — шаблон
+  content.config.ts    схема блога (валидация шапки при сборке)
 public/
   img/logos, img/photos, og-default.jpg, favicon.svg, apple-touch-icon.png, robots.txt, llms.txt
 ```

@@ -11,7 +11,7 @@ RUN npm ci --no-audit --no-fund || (echo "WARN: lock out of sync, falling back t
 COPY . .
 
 # Публичный адрес сайта: canonical, og:url, sitemap. Задаётся при сборке образа.
-ARG SITE_URL=https://philgodlewski.com
+ARG SITE_URL=https://philgodlewski.link
 ENV SITE_URL=$SITE_URL
 ENV NODE_ENV=production
 

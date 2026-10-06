@@ -12,8 +12,9 @@ export const site = {
   /** Домен подставится из SITE_URL при сборке; здесь — только для og:site_name */
   siteName: 'Phil Godlewski',
   title: 'Phil Godlewski — Owner & Co-Founder of ATOM Ventures Group',
+  /** ≤170 символов */
   description:
-    'Phil Godlewski — entrepreneur, owner and co-founder of ATOM Ventures Group. Building ventures at the intersection of technology, sports, AI and design: JGGL, Blockchain Sports, Neurodesign, Arteki Studio.',
+    'Phil Godlewski — owner and co-founder of ATOM Ventures Group. Ventures at the intersection of technology, sports, AI and design: JGGL, Blockchain Sports, Arteki.',
   ogImage: '/img/og-default.jpg',
 };
 
@@ -21,7 +22,12 @@ export const socials = {
   instagram: { label: 'Instagram', handle: '@philgodlewski.atom', url: 'https://www.instagram.com/philgodlewski.atom/' },
   // TODO: подтвердить точный адрес Threads (ТЗ: «ссылка из профиля Instagram»)
   threads: { label: 'Threads', handle: '@philgodlewski.atom', url: 'https://www.threads.com/@philgodlewski.atom' },
+  rumble: { label: 'Rumble', handle: 'rumble.com/c/PhilGodlewski', url: 'https://rumble.com/c/PhilGodlewski' },
+  telegram: { label: 'Telegram', handle: '@philgodlewskii4', url: 'https://t.me/philgodlewskii4' },
+  locals: { label: 'Locals', handle: 'philgodlewski.locals.com', url: 'https://philgodlewski.beta.locals.com/feed' },
 };
+/** Порядок каналов в блоке Follow и футере */
+export const socialOrder = ['instagram', 'threads', 'rumble', 'telegram', 'locals'] as const;
 
 
 
@@ -166,7 +172,7 @@ export const follow = {
   /** Фон секции: старая карта с булавками (21:9) */
   background: '/img/bg-map.webp',
   heading: 'Stay connected',
-  text: 'Follow Phil Godlewski on Instagram and Threads for project news and updates.',
+  text: 'Follow Phil Godlewski on Instagram, Threads, Rumble, Telegram and Locals for project news, videos and updates.',
 };
 
 export const contact = {

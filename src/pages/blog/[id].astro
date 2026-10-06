@@ -1,0 +1,79 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Icons from '../../components/Icons.astro';
+import { imgSize } from '../../lib/imgSize';
+import { site } from '../../content/site';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog', ({ data }) => !data.draft || import.meta.env.DEV);
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const cover = post.data.cover ? imgSize(post.data.cover) : null;
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const origin = Astro.site ? Astro.site.origin : '';
+const jsonLd = [
+  {
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: post.data.pubDate.toISOString(),
+    ...(post.data.updatedDate ? { dateModified: post.data.updatedDate.toISOString() } : {}),
+    ...(post.data.cover ? { image: origin + post.data.cover } : {}),
+    author: { '@type': 'Person', '@id': `${origin}/#person`, name: site.name },
+    mainEntityOfPage: `${origin}/blog/${post.id}`,
+  },
+];
+---
+<Base title={`${post.data.title} — ${site.name}`} description={post.data.description} path={`/blog/${post.id}`} ogImage={post.data.cover ?? site.ogImage} jsonLd={jsonLd}>
+  <Nav />
+  <main class="wrap article">
+    <a class="article__back" href="/blog"><Icons name="arrow" class="article__back-icon" /> All posts</a>
+    <header class="article__head">
+      <time class="article__date" datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
+      <h1 class="h2 article__title">{post.data.title}</h1>
+      <p class="lead">{post.data.description}</p>
+    </header>
+    {post.data.cover && cover && (
+      <figure class="article__cover">
+        <img src={post.data.cover} alt={post.data.coverAlt ?? ''} width={cover.width} height={cover.height} fetchpriority="high" />
+      </figure>
+    )}
+    <div class="article__body prose">
+      <Content />
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .article { padding-block: clamp(48px, 8vh, 96px) var(--section); max-width: 820px; }
+  .article__back { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--ink-2); margin-bottom: 36px; }
+  .article__back:hover { color: var(--ink); }
+  :global(.article__back-icon) { width: 16px; height: 16px; transform: rotate(180deg); }
+  .article__date { font-family: var(--font-display); font-style: italic; font-size: 20px; color: var(--accent-2); }
+  .article__title { margin-top: 12px; max-width: none; }
+  .article__head .lead { margin-top: 20px; }
+  .article__cover { margin: 40px 0 0; border-radius: 6px; overflow: hidden; outline: 1px solid var(--line); }
+  .article__cover img { width: 100%; height: auto; }
+  .article__body { margin-top: 44px; }
+
+  .prose { font-size: 18px; line-height: 1.7; color: #d4d7dd; }
+  .prose :global(h2) { font-family: var(--font-display); font-size: 34px; line-height: 1.1; font-weight: 600; color: var(--ink); margin: 48px 0 16px; }
+  .prose :global(h3) { font-family: var(--font-display); font-size: 26px; line-height: 1.15; font-weight: 600; color: var(--ink); margin: 36px 0 12px; }
+  .prose :global(p) { margin: 0 0 20px; }
+  .prose :global(a) { color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px; }
+  .prose :global(blockquote) { margin: 32px 0; padding: 4px 0 4px 24px; border-left: 2px solid var(--accent-2); font-family: var(--font-display); font-style: italic; font-size: 24px; color: var(--ink); }
+  .prose :global(ul), .prose :global(ol) { padding-left: 22px; margin: 0 0 20px; }
+  .prose :global(li) { margin-bottom: 8px; }
+  .prose :global(img) { border-radius: 6px; outline: 1px solid var(--line); margin: 28px 0; }
+  .prose :global(hr) { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+  .prose :global(code) { font-size: 0.9em; background: rgba(255, 255, 255, 0.06); padding: 2px 6px; border-radius: 4px; }
+  .prose :global(strong) { color: var(--ink); }
+</style>

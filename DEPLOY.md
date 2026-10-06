@@ -26,7 +26,7 @@ SITE_URL=https://<домен> npm run build
 
 ## Перед публикацией
 
-1. В `Caddyfile` заменить `philgodlewski.com` на реальный домен (редирект www → apex).
+1. Домен **philgodlewski.link** прописан в `Caddyfile` (www → apex, /index.html → /), `public/robots.txt`, `Dockerfile` и `astro.config.mjs`. При смене домена править эти четыре места.
 2. Проверить, что в `src/content/site.ts` заполнены: портрет, ссылки проектов, `contact.formEndpoint`.
 3. Редиректы на уровне прокси: `http → https`, `www → apex`.
 4. После деплоя: Google Search Console → добавить домен → отправить `/sitemap-index.xml`.
