@@ -33,14 +33,31 @@ npm run preview   # проверить сборку локально
 
 ## Блог
 
-Посты — Markdown-файлы в `src/content/blog/`. Шаблон с подсказками: `src/content/blog/_TEMPLATE.md` (файлы с `_` в начале не публикуются).
+Статьи — Markdown-файлы в `src/content/blog/`, рубрики — файлы в `src/content/categories/`, авторы — в `src/content/authors/`. Полная инструкция для редакции и пакетной заливки — **`docs/BLOG.md`**.
 
-1. Скопировать шаблон, назвать латиницей через дефис: `first-post.md` → адрес `/blog/first-post`.
-2. Заполнить шапку: `title` (≤70), `description` (50–170), `pubDate`, при желании `cover` (картинка в `public/img/blog/`), `tags`.
-3. Убрать `draft: true`. Черновики видны только в `npm run dev`, в сборку не попадают.
-4. `npm run build` или push в main.
+Коротко:
 
-Пока опубликованных постов нет, страница `/blog` и пункт меню «Blog» не создаются автоматически.
+1. `npm run new-post -- "Article title" --category ai --tags "ai, sports"` — создаёт черновик `src/content/blog/<slug>.md` (адрес `/blog/<slug>`).
+2. Заполнить шапку (`description` 50–170, при желании обложка, `cta`, `faq`), написать текст, убрать `draft: true`.
+3. Push в `main` — сайт пересоберётся сам (поллер на сервере, ~1 мин).
+
+Сборка падает, если шапка заполнена с ошибкой (длины, несуществующая рубрика, обложка без `coverAlt`) — это и есть проверка перед публикацией.
+
+Пока опубликованных постов нет, страница `/blog` и пункт меню «Blog» не создаются.
+
+| URL | Что |
+|---|---|
+| `/blog`, `/blog/2` | лента + Recommended (`featured: true`) |
+| `/blog/<slug>` | статья: крошки, автор, похожие, «поделиться», CTA в каналы Фила |
+| `/blog/category/<id>` | рубрика (только если в ней есть статьи) |
+| `/blog/tag/<slug>` | тег; меньше 3 статей — `noindex` и вне sitemap |
+| `/blog/author/<id>` | автор |
+| `/blog/archive`, `/blog/search` | архив по месяцам; поиск (Pagefind, `noindex`) |
+| `/rss.xml`, `/llms.txt`, `/sitemap-index.xml` | генерируются при сборке |
+
+## Аналитика
+
+GA4 — `analytics.gaId` в `src/content/site.ts` (пусто — скрипт не выводится). Consent Mode v2: для EEA/UK/CH аналитика включается только после Accept в баннере. События и их параметры описаны в `src/components/Analytics.astro`; ключевое — `social_click` (переход в канал Фила, параметры `channel`, `placement`).
 
 ## Деплой
 
@@ -51,15 +68,22 @@ npm run preview   # проверить сборку локально
 ```
 src/
   content/site.ts      весь контент
-  components/          секции страницы (Hero, Profile, Atom, Ecosystem, Focus, Media, Follow, Contact, Nav, Footer)
+  components/          секции страницы (Hero, Profile, Atom, Ecosystem, Focus, Media, LatestPosts, Follow, Contact, Nav, Footer), Analytics
+  components/blog/     блоки блога: карточка, сетка, крошки, рубрики, пагинация, CTA каналов, «поделиться», каркас списков
   layouts/Base.astro   SEO-голова: title, description, canonical, OG, Twitter, JSON-LD
-  lib/schema.ts        Schema.org Person + Organization
+  lib/schema.ts        Schema.org: Person, Organization, BlogPosting, BreadcrumbList, FAQPage
+  lib/blog.ts          выборка опубликованных постов, рубрики, теги, похожие статьи
   lib/imgSize.ts       реальные размеры картинок на этапе сборки (против скачков вёрстки)
   styles/global.css    токены, типографика, кнопки, карточки
   pages/index.astro    главная и 404
-  pages/blog/          список постов (/blog, пагинация по 9) и страница поста (/blog/<id>)
-  content/blog/        посты блога (Markdown), _TEMPLATE.md — шаблон
-  content.config.ts    схема блога (валидация шапки при сборке)
+  pages/blog/          лента, статья, рубрики, теги, автор, архив, поиск
+  pages/rss.xml.ts, llms.txt.ts, redirects.caddy.ts   генерируемые файлы
+  content/blog/        статьи (Markdown), _TEMPLATE.md — шаблон со всеми полями
+  content/categories/  рубрики, content/authors/ — авторы
+  assets/              картинки статей и авторов (оптимизируются при сборке)
+  integrations/        после сборки: индекс поиска Pagefind, lastmod и noindex в sitemap
+  content.config.ts    схемы статей, рубрик, авторов (валидация при сборке)
+scripts/new-post.mjs   создание черновика статьи
 public/
-  img/logos, img/photos, og-default.jpg, favicon.svg, apple-touch-icon.png, robots.txt, llms.txt
+  img/logos, img/photos, og-default.jpg, favicon.svg, apple-touch-icon.png, robots.txt
 ```

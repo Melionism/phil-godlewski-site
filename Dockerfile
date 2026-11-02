@@ -21,6 +21,8 @@ RUN npm run build && test -f dist/index.html || (echo "FATAL: dist/index.html mi
 FROM caddy:2.11-alpine
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY --from=build /app/dist /srv
+# Редиректы из aliases статей — конфиг Caddy, а не публичный файл
+RUN mv /srv/redirects.caddy /etc/caddy/redirects.caddy
 RUN caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
 EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \

@@ -1,0 +1,63 @@
+---
+/**
+ * CTA «Follow Phil» — главный выход из статьи в каналы Фила.
+ * primary — канал, который выделяется крупно (frontmatter `cta` статьи).
+ * placement — метка для события social_click в GA4.
+ */
+import { blog, socials, socialOrder, type Channel } from '../../content/site';
+import Icons from '../Icons.astro';
+
+interface Props { primary?: Channel; placement: string; compact?: boolean }
+const { primary = 'telegram', placement, compact = false } = Astro.props;
+const main = socials[primary];
+const rest = socialOrder.filter((k) => k !== primary);
+---
+<aside class:list={['fcta', { 'fcta--compact': compact }]} data-placement={placement} aria-label={blog.cta.heading}>
+  <div class="fcta__text">
+    <p class="label">Follow</p>
+    <h2 class="fcta__title">{blog.cta.heading}</h2>
+    <p class="fcta__lead">{blog.cta.text}</p>
+  </div>
+  <a class="card fcta__main" href={main.url} target="_blank" rel="noopener">
+    <span class="fcta__icon"><Icons name={primary} /></span>
+    <span class="fcta__name">{main.label}</span>
+    <span class="fcta__hint">{blog.cta.primaryText[primary]}</span>
+    <Icons name="arrow" class="fcta__arrow" />
+  </a>
+  <ul class="fcta__rest">
+    {rest.map((k) => (
+      <li>
+        <a href={socials[k].url} target="_blank" rel="noopener"><Icons name={k} /> {socials[k].label}</a>
+      </li>
+    ))}
+  </ul>
+</aside>
+
+<style>
+  .fcta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px 32px;
+    align-items: center;
+    padding: clamp(24px, 4vw, 40px);
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius);
+    background: radial-gradient(ellipse at 100% 0%, rgba(200, 24, 42, 0.18), transparent 60%), var(--bg-2);
+  }
+  .fcta .label { margin-bottom: 10px; }
+  .fcta__title { font-family: var(--font-display); font-size: clamp(30px, 4vw, 42px); line-height: 1.05; font-weight: 600; }
+  .fcta__lead { margin-top: 10px; color: var(--ink-2); }
+  .fcta__main { display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: auto auto; column-gap: 14px; align-items: center; padding: 18px 20px; }
+  .fcta__icon { grid-row: span 2; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: #fff; }
+  .fcta__icon :global(svg) { width: 24px; height: 24px; }
+  .fcta__name { font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.1; }
+  .fcta__hint { grid-column: 2; color: var(--ink-2); font-size: 14px; }
+  :global(.fcta__arrow) { grid-row: span 2; width: 22px; height: 22px; color: var(--ink-3); transition: transform 0.3s var(--ease), color 0.2s; }
+  .fcta__main:hover :global(.fcta__arrow) { transform: translateX(4px); color: var(--accent-2); }
+  .fcta__rest { grid-column: 1 / -1; list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .fcta__rest a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px; border: 1px solid var(--line-2); border-radius: 999px; font-size: 14px; font-weight: 700; color: var(--ink-2); transition: border-color 0.2s, color 0.2s; }
+  .fcta__rest a:hover { border-color: var(--ink); color: var(--ink); }
+  .fcta__rest :global(svg) { width: 18px; height: 18px; }
+  .fcta--compact { grid-template-columns: 1fr; }
+  @media (max-width: 760px) { .fcta { grid-template-columns: 1fr; } }
+</style>

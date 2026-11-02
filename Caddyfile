@@ -29,8 +29,12 @@
 		respond /healthz "ok" 200
 		redir @www https://philgodlewski.link{uri} permanent
 		redir @trailing {re.trailing.1} permanent
-		# /index.html — дубль главной
+		# /index.html — дубль главной; /blog/post.html — дубль /blog/post
 		redir /index.html / permanent
+		@html path_regexp html ^(/.+)\.html$
+		redir @html {re.html.1} permanent
+		# Старые адреса статей (frontmatter aliases) — генерируется при сборке, см. src/pages/redirects.caddy.ts
+		import /etc/caddy/redirects.caddy
 
 		encode zstd gzip
 

@@ -1,0 +1,27 @@
+---
+/** «Latest from the blog» на главной: три свежие статьи. Нет постов — секции нет. */
+import PostGrid from './blog/PostGrid.astro';
+import { getPosts } from '../lib/blog';
+import { blog } from '../content/site';
+import Icons from './Icons.astro';
+
+const latest = (await getPosts()).slice(0, 3);
+---
+{latest.length > 0 && (
+  <section class="section latest" id="blog" aria-labelledby="latest-title">
+    <div class="wrap">
+      <div class="latest__head reveal">
+        <div>
+          <p class="label">{blog.label}</p>
+          <h2 class="h2" id="latest-title">Latest from the blog</h2>
+        </div>
+        <a class="btn btn--ghost" href="/blog">All articles <Icons name="arrow" /></a>
+      </div>
+      <PostGrid posts={latest} headingLevel="h3" />
+    </div>
+  </section>
+)}
+
+<style>
+  .latest__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 40px; }
+</style>

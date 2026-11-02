@@ -1,0 +1,42 @@
+---
+/**
+ * Политика конфиденциальности (ТЗ, SEC-6). ЧЕРНОВИК: текст согласовать с клиентом перед публикацией ссылки.
+ * Описывает только то, что реально есть на сайте: GA4 с Consent Mode, без рекламы и форм.
+ */
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site, analytics } from '../content/site';
+---
+<Base title={`Privacy — ${site.name}`} description={`How ${site.name}'s website uses analytics cookies and what data is collected when you read the site and blog.`} path="/privacy">
+  <Nav />
+  <main class="wrap privacy" id="main">
+    <p class="label">Privacy</p>
+    <h1 class="h2">Privacy policy</h1>
+    <div class="privacy__body">
+      <p>This website is a personal site of {site.name}. It has no user accounts and does not sell or share personal data.</p>
+      <h2>Analytics</h2>
+      {analytics.gaId ? (
+        <p>
+          We use Google Analytics 4 to understand which pages and articles are read and which links visitors follow.
+          Google Analytics sets cookies and processes your IP address and device information on behalf of the site.
+          In the European Economic Area, the UK and Switzerland analytics cookies are only set after you click “Accept” in the cookie banner.
+          You can change your choice at any time by clearing this site’s data in your browser.
+        </p>
+      ) : (
+        <p>The site currently does not use analytics cookies.</p>
+      )}
+      <h2>External links</h2>
+      <p>Links to Instagram, Threads, Rumble, Telegram, Locals and project websites open third-party services with their own privacy policies.</p>
+      <h2>Server logs</h2>
+      <p>Our hosting and content delivery network keep standard technical request logs (IP address, time, requested page) for security and reliability.</p>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .privacy { padding-block: clamp(48px, 8vh, 96px) var(--section); max-width: 820px; }
+  .privacy__body { margin-top: 32px; color: var(--ink-2); font-size: 17px; line-height: 1.7; }
+  .privacy__body h2 { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--ink); margin: 36px 0 10px; }
+</style>

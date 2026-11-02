@@ -1,0 +1,78 @@
+---
+/**
+ * Общий каркас списочных страниц блога: лента, рубрика, тег, автор.
+ * Пагинация — self-canonical на каждой странице (ТЗ, SEO-3), prev/next в <head>.
+ */
+import type { Page } from 'astro';
+import Base from '../../layouts/Base.astro';
+import Nav from '../Nav.astro';
+import Footer from '../Footer.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import CategoryChips from './CategoryChips.astro';
+import PostGrid from './PostGrid.astro';
+import Pager from './Pager.astro';
+import FollowCta from './FollowCta.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+import type { Post } from '../../lib/blog';
+
+interface Props {
+  page: Page<Post>;
+  /** Все опубликованные посты — для счётчиков рубрик */
+  posts: Post[];
+  title: string;
+  description: string;
+  label: string;
+  heading: string;
+  lead?: string;
+  crumbs: { name: string; href: string }[];
+  currentCategory?: string;
+  noindex?: boolean;
+  placement: string;
+  jsonLd?: Record<string, unknown>[];
+}
+const { page, posts, title, description, label, heading, lead, crumbs, currentCategory, noindex, placement, jsonLd = [] } = Astro.props;
+const origin = Astro.site ? Astro.site.origin : '';
+const paged = page.currentPage > 1;
+const fullCrumbs = paged ? [...crumbs, { name: `Page ${page.currentPage}`, href: page.url.current }] : crumbs;
+---
+<Base
+  title={paged ? `${title} — page ${page.currentPage}` : title}
+  description={paged ? `${description.replace(/\.$/, '')} — page ${page.currentPage}.` : description}
+  path={page.url.current}
+  noindex={noindex}
+  prev={page.url.prev}
+  next={page.url.next}
+  jsonLd={[breadcrumbSchema(origin, fullCrumbs), ...jsonLd]}
+>
+  <Nav />
+  <main class="wrap blog-page" id="main">
+    <Breadcrumbs items={fullCrumbs} />
+    <header class="blog-page__head">
+      <p class="label">{label}</p>
+      <h1 class="h2">{heading}</h1>
+      {lead && <p class="lead">{lead}</p>}
+      <slot name="intro" />
+    </header>
+    <div class="blog-page__bar">
+      <CategoryChips posts={posts} current={currentCategory} />
+      <div class="blog-page__tools">
+        <a class="chip" href="/blog/search">Search</a>
+        <a class="chip" href="/blog/archive">Archive</a>
+      </div>
+    </div>
+    <slot name="top" />
+    <section class="blog-section" aria-label="Articles">
+      <PostGrid posts={page.data} />
+      <Pager prev={page.url.prev} next={page.url.next} current={page.currentPage} last={page.lastPage} />
+    </section>
+    <div class="blog-section">
+      <FollowCta placement={placement} />
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .blog-page__bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; margin-bottom: 40px; }
+  .blog-page__tools { display: flex; gap: 8px; }
+</style>

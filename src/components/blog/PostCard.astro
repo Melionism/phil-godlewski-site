@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import { fmtDate, postUrl, type Post } from '../../lib/blog';
+import { getEntry } from 'astro:content';
+
+interface Props { post: Post; headingLevel?: 'h2' | 'h3' }
+const { post, headingLevel: H = 'h2' } = Astro.props;
+const category = await getEntry(post.data.category);
+---
+<a class="card post" href={postUrl(post.id)}>
+  {post.data.cover && (
+    <Image class="post__cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} widths={[400, 640, 800]} sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 380px" loading="lazy" decoding="async" />
+  )}
+  <div class="post__body">
+    <p class="post__meta">
+      {category && <span class="post__cat">{category.data.name}</span>}
+      <time datetime={post.data.pubDate.toISOString()}>{fmtDate(post.data.pubDate)}</time>
+    </p>
+    <H class="h3 post__title">{post.data.title}</H>
+    <p class="post__desc">{post.data.description}</p>
+  </div>
+</a>
+
+<style>
+  .post { display: flex; flex-direction: column; height: 100%; overflow: hidden; }
+  .post :global(.post__cover) { aspect-ratio: 16 / 9; width: 100%; height: auto; object-fit: cover; border-bottom: 1px solid var(--line); filter: grayscale(0.6) contrast(1.05); transition: filter 0.6s var(--ease); }
+  .post:hover :global(.post__cover) { filter: none; }
+  .post__body { padding: 24px 26px 28px; display: grid; gap: 10px; }
+  .post__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--accent-2); }
+  .post__cat { font-family: var(--font); font-style: normal; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+  .post__title { font-size: 28px; }
+  .post__desc { color: var(--ink-2); font-size: 15px; }
+</style>

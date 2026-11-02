@@ -28,6 +28,38 @@ export const socials = {
 };
 /** Порядок каналов в блоке Follow и футере */
 export const socialOrder = ['instagram', 'threads', 'rumble', 'telegram', 'locals'] as const;
+export type Channel = (typeof socialOrder)[number];
+
+/**
+ * Аналитика. Значения публичные (видны в HTML), это не секреты.
+ * gaId — Measurement ID ресурса GA4 вида G-XXXXXXXXXX; пусто — скрипт GA не выводится.
+ * gscVerification — содержимое meta google-site-verification (если домен подтверждают не через DNS).
+ */
+export const analytics = {
+  gaId: '',
+  gscVerification: '',
+};
+
+/** Блог: тексты ленты и CTA после статей */
+export const blog = {
+  label: 'Blog',
+  heading: 'Notes from the ecosystem',
+  title: 'Blog — Phil Godlewski on technology, sports, AI and design',
+  description:
+    'Notes and updates from Phil Godlewski — owner and co-founder of ATOM Ventures Group — on technology, sports, AI, design and the ATOM ecosystem.',
+  cta: {
+    heading: 'Follow Phil Godlewski',
+    text: 'Project news, videos and updates — first on Phil’s channels.',
+    /** Подпись под выделенным каналом */
+    primaryText: {
+      instagram: 'Daily updates and behind the scenes',
+      threads: 'Short takes and conversations',
+      rumble: 'Videos, interviews and long-form talks',
+      telegram: 'News from the ecosystem, first',
+      locals: 'Community and exclusive posts',
+    },
+  },
+};
 
 
 

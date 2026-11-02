@@ -5,7 +5,7 @@ import Icons from './Icons.astro';
 const hasForm = contact.formEndpoint.length > 0;
 const bg = imgSize(contact.image);
 ---
-<section class="section" id="contact">
+<section class="section" id="contact" data-placement="contact">
   <div class="wrap">
     <div class="contact reveal">
       <img class="contact__bg" src={contact.image} alt="" width={bg.width} height={bg.height} loading="lazy" decoding="async" aria-hidden="true" />

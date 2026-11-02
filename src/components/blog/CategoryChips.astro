@@ -1,0 +1,18 @@
+---
+import { getCategories, categoryUrl, type Post } from '../../lib/blog';
+
+/** Список рубрик со счётчиками. Пустые рубрики не показываются — у них нет страницы. */
+interface Props { posts: Post[]; current?: string; withAll?: boolean }
+const { posts, current, withAll = true } = Astro.props;
+const cats = (await getCategories(posts)).filter((c) => c.count > 0);
+---
+<ul class="chips" aria-label="Categories">
+  {withAll && <li><a class="chip" href="/blog" aria-current={!current ? 'page' : undefined}>All</a></li>}
+  {cats.map(({ cat, count }) => (
+    <li>
+      <a class="chip" href={categoryUrl(cat.id)} aria-current={current === cat.id ? 'page' : undefined}>
+        {cat.data.name} <span class="chip__count">{count}</span>
+      </a>
+    </li>
+  ))}
+</ul>

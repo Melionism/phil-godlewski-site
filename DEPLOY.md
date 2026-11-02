@@ -29,10 +29,22 @@ SITE_URL=https://<домен> npm run build
 1. Домен **philgodlewski.link** прописан в `Caddyfile` (www → apex, /index.html → /), `public/robots.txt`, `Dockerfile` и `astro.config.mjs`. При смене домена править эти четыре места.
 2. Проверить, что в `src/content/site.ts` заполнены: портрет, ссылки проектов, `contact.formEndpoint`.
 3. Редиректы на уровне прокси: `http → https`, `www → apex`.
-4. После деплоя: Google Search Console → добавить домен → отправить `/sitemap-index.xml`.
+4. После деплоя: Google Search Console → добавить домен (DNS-запись в Cloudflare или `analytics.gscVerification` в `site.ts`) → отправить `/sitemap-index.xml`.
 5. Проверить превью ссылки (OG) через https://www.opengraph.xyz/ или отправив ссылку в Telegram.
+
+## Блог и автодеплой
+
+Прод: Coolify-приложение `phil-godlewski-site` на atom-server. Push в `main` подхватывает cron-поллер (`~/autodeploy`) и запускает деплой примерно за минуту.
+
+Отложенная публикация (статья с будущей `pubDate`) появляется только при следующей сборке — нужен push или ручной Redeploy в Coolify в нужный день.
+
+301 со старых адресов статей: при сборке из `aliases` генерируется `dist/redirects.caddy`, Dockerfile переносит его в `/etc/caddy/`, Caddyfile подключает через `import`. При деплое без Docker эти редиректы нужно настроить на своём прокси.
+
+## Аналитика
+
+GA4 подключается заполнением `analytics.gaId` в `src/content/site.ts`. После этого в GA4: отметить `social_click` как ключевое событие (Admin → Events), при желании зарегистрировать custom dimensions `channel` и `placement`.
 
 ## Что не сделано
 
-- Аналитика (Метрика / GA / Pixel) — не подключена намеренно, добавить по запросу клиента.
 - Обработчик контакт-формы — нужен адрес endpoint от клиента.
+- Текст `/privacy` — черновик, согласовать с клиентом.

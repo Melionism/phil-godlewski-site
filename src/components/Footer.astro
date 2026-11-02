@@ -1,11 +1,11 @@
 ---
-import { nav, socials, socialOrder, footer } from '../content/site';
-import { getCollection } from 'astro:content';
+import { nav, socials, socialOrder, footer, analytics } from '../content/site';
+import { getPosts } from '../lib/blog';
 const home = Astro.url.pathname === '/';
-const posts = (await getCollection('blog', ({ data }) => !data.draft || import.meta.env.DEV));
+const posts = await getPosts();
 const links = [...nav.map((n) => ({ label: n.label, href: home ? n.href : '/' + n.href })), ...(posts.length ? [{ label: 'Blog', href: '/blog' }] : [])];
 ---
-<footer class="footer">
+<footer class="footer" data-placement="footer">
   <div class="wrap footer__in">
     <a href={home ? '#top' : '/'} class="footer__brand"><img class="footer__mark" src="/img/mask-icon.png" alt="" width="256" height="270" aria-hidden="true" />Phil Godlewski</a>
     <nav class="footer__nav" aria-label="Footer">
@@ -14,7 +14,7 @@ const links = [...nav.map((n) => ({ label: n.label, href: home ? n.href : '/' + 
     <div class="footer__social">
       {socialOrder.map((k) => <a href={socials[k].url} target="_blank" rel="noopener">{socials[k].label}</a>)}
     </div>
-    <p class="footer__note">{footer.note}</p>
+    <p class="footer__note">{footer.note}{analytics.gaId && <> · <a href="/privacy">Privacy</a></>}</p>
   </div>
 </footer>
 

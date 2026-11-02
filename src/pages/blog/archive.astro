@@ -1,0 +1,66 @@
+---
+/** Архив: все статьи по годам и месяцам (ТЗ, FR-8). Рубрики — чипы сверху. */
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/blog/Breadcrumbs.astro';
+import CategoryChips from '../../components/blog/CategoryChips.astro';
+import { getPosts, postUrl, fmtDate } from '../../lib/blog';
+import { breadcrumbSchema } from '../../lib/schema';
+import { site } from '../../content/site';
+
+const posts = await getPosts();
+const origin = Astro.site ? Astro.site.origin : '';
+const month = (d: Date) => d.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const groups = new Map<string, typeof posts>();
+for (const p of posts) {
+  const key = month(p.data.pubDate);
+  groups.set(key, [...(groups.get(key) ?? []), p]);
+}
+const crumbs = [
+  { name: 'Home', href: '/' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Archive', href: '/blog/archive' },
+];
+---
+<Base
+  title={`Blog archive — all articles by ${site.name}`}
+  description={`All articles by ${site.name} by month: technology, sports, AI, design and the ATOM Ventures Group ecosystem.`}
+  path="/blog/archive"
+  noindex={posts.length === 0}
+  jsonLd={[breadcrumbSchema(origin, crumbs)]}
+>
+  <Nav />
+  <main class="wrap blog-page" id="main">
+    <Breadcrumbs items={crumbs} />
+    <header class="blog-page__head">
+      <p class="label">Blog</p>
+      <h1 class="h2">Archive</h1>
+    </header>
+    <CategoryChips posts={posts} />
+    {[...groups].map(([name, list]) => (
+      <section class="blog-section archive" aria-label={name}>
+        <h2 class="blog-section__title">{name}</h2>
+        <ul>
+          {list.map((p) => (
+            <li>
+              <time datetime={p.data.pubDate.toISOString()}>{fmtDate(p.data.pubDate)}</time>
+              <a href={postUrl(p.id)}>{p.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .archive { margin-top: 56px; }
+  .archive ul { list-style: none; padding: 0; margin: 0; }
+  .archive li { display: grid; grid-template-columns: 180px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .archive time { font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--ink-3); }
+  .archive a { font-weight: 700; }
+  .archive a:hover { color: var(--accent-2); }
+  @media (max-width: 560px) { .archive li { grid-template-columns: 1fr; gap: 2px; } }
+</style>

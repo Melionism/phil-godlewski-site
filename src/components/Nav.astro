@@ -1,18 +1,18 @@
 ---
 import { nav, socials } from '../content/site';
 import Icons from './Icons.astro';
-import { getCollection } from 'astro:content';
+import { getPosts } from '../lib/blog';
 const home = Astro.url.pathname === '/';
-const posts = await getCollection('blog', ({ data }) => !data.draft || import.meta.env.DEV);
+const posts = await getPosts();
 const links = [...nav.map((n) => ({ label: n.label, href: home ? n.href : '/' + n.href })), ...(posts.length ? [{ label: 'Blog', href: '/blog' }] : [])];
 ---
-<header class="nav">
+<header class="nav" data-placement="nav">
   <div class="wrap nav__in">
     <a href={home ? '#top' : '/'} class="nav__brand" aria-label="Phil Godlewski — home">
       <img class="nav__mark" src="/img/mask-icon.png" alt="" width="256" height="270" aria-hidden="true" /><span>Phil Godlewski</span>
     </a>
     <nav class="nav__links" aria-label="Sections">
-      {links.map((n) => <a href={n.href} aria-current={!home && n.href === '/blog' ? 'page' : undefined}>{n.label}</a>)}
+      {links.map((n) => <a href={n.href} aria-current={n.href === '/blog' && Astro.url.pathname.startsWith('/blog') ? 'page' : undefined}>{n.label}</a>)}
     </nav>
     <div class="nav__social">
       <a href={socials.instagram.url} target="_blank" rel="noopener" aria-label="Instagram"><Icons name="instagram" /></a>

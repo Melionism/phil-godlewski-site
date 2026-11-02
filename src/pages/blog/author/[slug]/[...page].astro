@@ -1,0 +1,57 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import ListPage from '../../../../components/blog/ListPage.astro';
+import { getPosts, PAGE_SIZE, authorUrl } from '../../../../lib/blog';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getPosts();
+  const authors = await getCollection('authors');
+  return authors.flatMap((author) => {
+    const own = posts.filter((p) => p.data.author.id === author.id);
+    return own.length ? paginate(own, { pageSize: PAGE_SIZE, params: { slug: author.id }, props: { author, posts } }) : [];
+  });
+}) satisfies GetStaticPaths;
+
+const { page, author, posts } = Astro.props;
+const { Content } = await render(author);
+const origin = Astro.site ? Astro.site.origin : '';
+// Тот же Person, что на главной (#person): страница автора дополняет его, а не создаёт второго
+const profile = {
+  '@type': 'ProfilePage',
+  mainEntity: { '@type': 'Person', '@id': `${origin}/#person`, name: author.data.name, jobTitle: author.data.position, sameAs: author.data.sameAs },
+};
+---
+<ListPage
+  page={page}
+  posts={posts}
+  title={`${author.data.name} — articles on tech, sports, AI and design`}
+  description={author.data.short}
+  label="Author"
+  heading={author.data.name}
+  crumbs={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog' }, { name: author.data.name, href: authorUrl(author.id) }]}
+  placement="author_feed"
+  jsonLd={[profile]}
+>
+  <div class="bio" slot="intro">
+    <Image class="bio__photo" src={author.data.photo} alt={author.data.photoAlt} width={160} height={160} loading="eager" />
+    <div>
+      <p class="bio__pos">{author.data.position}</p>
+      <div class="bio__text"><Content /></div>
+      <ul class="chips bio__links">
+        {author.data.sameAs.map((u) => <li><a class="chip" href={u} target="_blank" rel="noopener me">{new URL(u).hostname.replace(/^www\./, '')}</a></li>)}
+      </ul>
+    </div>
+  </div>
+</ListPage>
+
+<style>
+  .bio { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start; margin-top: 28px; }
+  .bio :global(.bio__photo) { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
+  .bio__pos { font-weight: 700; color: var(--accent-2); }
+  .bio__text { margin-top: 10px; color: var(--ink-2); }
+  .bio__text :global(p + p) { margin-top: 12px; }
+  .bio__links { margin-top: 18px; }
+  @media (max-width: 560px) { .bio { grid-template-columns: 1fr; } }
+</style>

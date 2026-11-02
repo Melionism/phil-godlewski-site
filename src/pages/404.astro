@@ -2,16 +2,32 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import PostGrid from '../components/blog/PostGrid.astro';
+import { getPosts } from '../lib/blog';
+
+// Свежие статьи и поиск вместо тупика (ТЗ, SEO-5)
+const latest = (await getPosts()).slice(0, 3);
 ---
 <Base title="Page not found — Phil Godlewski" description="This page does not exist." path="/404" noindex>
   <Nav />
-  <main class="wrap nf">
+  <main class="wrap nf" id="main">
     <p class="label">404</p>
     <h1 class="h2">This page doesn’t exist.</h1>
-    <a class="btn btn--primary" href="/">Back to home</a>
+    <div class="nf__actions">
+      <a class="btn btn--primary" href="/">Back to home</a>
+      {latest.length > 0 && <a class="btn btn--ghost" href="/blog/search">Search the blog</a>}
+    </div>
+    {latest.length > 0 && (
+      <section class="nf__latest" aria-labelledby="nf-latest">
+        <h2 class="blog-section__title" id="nf-latest">Latest articles</h2>
+        <PostGrid posts={latest} headingLevel="h3" />
+      </section>
+    )}
   </main>
   <Footer />
 </Base>
 <style>
   .nf { min-height: 60vh; display: grid; align-content: center; gap: 20px; justify-items: start; padding-block: 80px; }
+  .nf__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .nf__latest { margin-top: 48px; justify-self: stretch; }
 </style>

@@ -5,7 +5,7 @@ import { imgSize } from '../lib/imgSize';
 const channels = socialOrder.map((k) => ({ key: k, ...socials[k] }));
 const bg = imgSize(follow.background);
 ---
-<section class="section followsec" id="follow">
+<section class="section followsec" id="follow" data-placement="follow">
   <div class="followsec__bg" aria-hidden="true">
     <img src={follow.background} alt="" width={bg.width} height={bg.height} loading="lazy" decoding="async" />
   </div>

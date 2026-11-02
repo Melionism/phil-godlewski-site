@@ -1,0 +1,42 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import ListPage from '../../../../components/blog/ListPage.astro';
+import { getPosts, getCategories, PAGE_SIZE, categoryUrl } from '../../../../lib/blog';
+import { site } from '../../../../content/site';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getPosts();
+  const cats = await getCategories(posts);
+  // Пустая рубрика страницы не получает: тонкая страница без статей не нужна в индексе
+  return cats
+    .filter((c) => c.count > 0)
+    .flatMap(({ cat }) =>
+      paginate(
+        posts.filter((p) => p.data.category.id === cat.id),
+        { pageSize: PAGE_SIZE, params: { slug: cat.id }, props: { cat, posts } },
+      ),
+    );
+}) satisfies GetStaticPaths;
+
+const { page, cat, posts } = Astro.props;
+const { Content } = await render(cat);
+---
+<ListPage
+  page={page}
+  posts={posts}
+  title={cat.data.seoTitle ?? `${cat.data.name} — ${site.name} Blog`}
+  description={cat.data.seoDescription ?? cat.data.description}
+  label="Category"
+  heading={cat.data.name}
+  crumbs={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog' }, { name: cat.data.name, href: categoryUrl(cat.id) }]}
+  currentCategory={cat.id}
+  placement="category_feed"
+>
+  <div class="lead cat-intro" slot="intro"><Content /></div>
+</ListPage>
+
+<style>
+  .cat-intro { margin-top: 18px; }
+  .cat-intro :global(p + p) { margin-top: 12px; }
+</style>

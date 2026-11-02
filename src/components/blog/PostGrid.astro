@@ -1,0 +1,10 @@
+---
+import PostCard from './PostCard.astro';
+import type { Post } from '../../lib/blog';
+
+interface Props { posts: Post[]; headingLevel?: 'h2' | 'h3' }
+const { posts, headingLevel } = Astro.props;
+---
+<ul class="post-grid">
+  {posts.map((post) => <li><PostCard post={post} headingLevel={headingLevel} /></li>)}
+</ul>

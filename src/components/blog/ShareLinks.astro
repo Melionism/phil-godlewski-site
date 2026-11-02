@@ -1,0 +1,25 @@
+---
+/** «Поделиться» простыми ссылками — без сторонних скриптов (ТЗ, INT-2, PERF-7) */
+interface Props { url: string; title: string }
+const { url, title } = Astro.props;
+const u = encodeURIComponent(url);
+const t = encodeURIComponent(title);
+const links = [
+  { method: 'x', label: 'X', href: `https://x.com/intent/post?url=${u}&text=${t}` },
+  { method: 'telegram', label: 'Telegram', href: `https://t.me/share/url?url=${u}&text=${t}` },
+  { method: 'facebook', label: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${u}` },
+  { method: 'linkedin', label: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}` },
+  { method: 'email', label: 'Email', href: `mailto:?subject=${t}&body=${u}` },
+];
+---
+<div class="share">
+  <span class="share__label">Share</span>
+  <ul class="chips">
+    {links.map((l) => <li><a class="chip" href={l.href} target="_blank" rel="noopener" data-track="share" data-method={l.method}>{l.label}</a></li>)}
+  </ul>
+</div>
+
+<style>
+  .share { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+  .share__label { font-family: var(--font-display); font-style: italic; font-size: 20px; color: var(--ink-2); }
+</style>
