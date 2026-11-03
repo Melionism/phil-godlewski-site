@@ -20,7 +20,13 @@ export const getStaticPaths = (async () => {
 
 const { post, related } = Astro.props;
 const { data } = post;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+// Оглавление: H2/H3 статьи + FAQ; показываем, если разделов (H2) хотя бы три
+const toc = [
+  ...headings.filter((h) => h.depth === 2 || h.depth === 3).map((h) => ({ depth: h.depth, slug: h.slug, text: h.text })),
+  ...(data.faq.length ? [{ depth: 2, slug: 'faq-title', text: 'Frequently asked questions' }] : []),
+];
+const showToc = toc.filter((h) => h.depth === 2).length >= 3;
 const category = (await getEntry(data.category))!;
 const author = (await getEntry(data.author))!;
 const tags = await getEntries(data.tags);
@@ -82,6 +88,18 @@ const jsonLd = [
           <Image src={data.cover} alt={data.coverAlt ?? ''} widths={[640, 960, 1280, 1640]} sizes="(max-width: 860px) 100vw, 820px" loading="eager" fetchpriority="high" data-pagefind-meta="image[src]" />
         </figure>
       )}
+      {showToc && (
+        <nav class="toc" aria-labelledby="toc-title" data-pagefind-ignore>
+          <details open>
+            <summary id="toc-title">Contents</summary>
+            <ol>
+              {toc.map((h) => (
+                <li class:list={{ 'toc__sub': h.depth === 3 }}><a href={`#${h.slug}`}>{h.text}</a></li>
+              ))}
+            </ol>
+          </details>
+        </nav>
+      )}
       <div class="article__body prose">
         <Content />
       </div>
@@ -122,7 +140,10 @@ const jsonLd = [
 
     {related.length > 0 && (
       <section class="article__related" aria-labelledby="related-title" data-pagefind-ignore>
-        <h2 class="blog-section__title" id="related-title">Related articles</h2>
+        <div class="article__related-head">
+          <h2 class="blog-section__title" id="related-title">Related articles</h2>
+          <a class="btn btn--ghost" href={categoryUrl(category.id)}>More in {category.data.name}</a>
+        </div>
         <PostGrid posts={related} headingLevel="h3" />
       </section>
     )}
@@ -144,9 +165,21 @@ const jsonLd = [
   .article__cover { margin: 40px 0 0; border-radius: 6px; overflow: hidden; outline: 1px solid var(--line); }
   .article__cover :global(img) { width: 100%; height: auto; }
   .article__body { margin-top: 44px; }
+  .article__body :global(h2), .article__body :global(h3), .faq h2 { scroll-margin-top: 96px; }
+
+  .toc { margin-top: 40px; border: 1px solid var(--line-2); border-radius: var(--radius-sm); background: var(--bg-2); }
+  .toc summary { cursor: pointer; min-height: 52px; display: flex; align-items: center; padding: 0 22px; font-family: var(--font-display); font-size: 22px; font-weight: 600; }
+  .toc ol { list-style: none; margin: 0; padding: 0 22px 18px; display: grid; gap: 2px; counter-reset: toc; }
+  .toc li:not(.toc__sub) { counter-increment: toc; }
+  .toc li a { display: flex; gap: 12px; padding: 7px 0; color: var(--ink-2); font-size: 16px; line-height: 1.4; }
+  .toc li:not(.toc__sub) a::before { content: counter(toc, decimal-leading-zero); flex: none; width: 24px; font-family: var(--font-display); font-style: italic; color: var(--accent-2); }
+  .toc li.toc__sub a { padding-left: 36px; font-size: 15px; }
+  .toc li a:hover { color: var(--ink); }
   .article__tags { margin-top: 40px; }
   .article__after { margin-top: 48px; display: grid; gap: 28px; }
   .article__related { margin-top: 88px; }
+  .article__related-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; margin-bottom: 22px; }
+  .article__related-head .blog-section__title { margin-bottom: 0; }
 
   .author { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; padding: 20px 24px; }
   .author :global(.author__photo) { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
