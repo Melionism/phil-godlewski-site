@@ -6,21 +6,24 @@ import { site } from '../../../../content/site';
 
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getPosts();
-  return [...getTags(posts)].flatMap(([slug, tag]) =>
-    paginate(tag.posts, { pageSize: PAGE_SIZE, params: { slug }, props: { slug, tagName: tag.name, total: tag.posts.length, posts } }),
+  // Страница есть только у тегов из списка, на которые ссылается хотя бы одна статья
+  return (await getTags(posts)).flatMap(({ tag, posts: tagged }) =>
+    paginate(tagged, { pageSize: PAGE_SIZE, params: { slug: tag.id }, props: { tag, total: tagged.length, posts } }),
   );
 }) satisfies GetStaticPaths;
 
-const { page, slug, tagName, total, posts } = Astro.props;
+const { page, tag, total, posts } = Astro.props;
+const name = tag.data.name;
 ---
 <ListPage
   page={page}
   posts={posts}
-  title={`Articles tagged “${tagName}” — ${site.name} Blog`}
-  description={`Articles by ${site.name} tagged ${tagName}: notes on technology, sports, AI, design and the ATOM ecosystem.`}
+  title={`Articles tagged “${name}” — ${site.name} Blog`}
+  description={tag.data.description ?? `Articles by ${site.name} tagged ${name}: notes on technology, sports, AI, design and the ATOM ecosystem.`}
   label="Tag"
-  heading={`#${tagName}`}
-  crumbs={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog' }, { name: `#${tagName}`, href: tagUrl(slug) }]}
+  heading={`#${name}`}
+  lead={tag.data.description}
+  crumbs={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog' }, { name: `#${name}`, href: tagUrl(tag.id) }]}
   noindex={total < TAG_INDEX_MIN}
   placement="tag_feed"
 />

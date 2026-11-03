@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
-import { getEntry } from 'astro:content';
+import { getEntry, getEntries } from 'astro:content';
 import { getPosts, postUrl } from '../lib/blog';
 import { site, blog } from '../content/site';
 
@@ -13,7 +13,7 @@ export async function GET(context: APIContext) {
       description: p.data.description,
       pubDate: p.data.pubDate,
       link: postUrl(p.id),
-      categories: [(await getEntry(p.data.category))?.data.name ?? '', ...p.data.tags].filter(Boolean),
+      categories: [(await getEntry(p.data.category))?.data.name ?? '', ...(await getEntries(p.data.tags)).map((t) => t.data.name)].filter(Boolean),
     })),
   );
   return rss({

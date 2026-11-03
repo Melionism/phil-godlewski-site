@@ -25,27 +25,12 @@ export async function getCategories(posts?: Post[]) {
   return cats.map((cat) => ({ cat, count: list.filter((p) => p.data.category.id === cat.id).length }));
 }
 
-export const tagSlug = (tag: string) =>
-  tag
-    .toLowerCase()
-    .normalize('NFKD')
-    .replace(/['’]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-
-/** Теги: slug → отображаемое имя (первое встреченное написание) и посты */
-export function getTags(posts: Post[]) {
-  const tags = new Map<string, { name: string; posts: Post[] }>();
-  for (const post of posts) {
-    for (const name of post.data.tags) {
-      const slug = tagSlug(name);
-      if (!slug) continue;
-      const entry = tags.get(slug) ?? { name, posts: [] };
-      entry.posts.push(post);
-      tags.set(slug, entry);
-    }
-  }
-  return tags;
+/** Теги из списка, у которых есть опубликованные статьи */
+export async function getTags(posts: Post[]) {
+  const all = await getCollection('tags');
+  return all
+    .map((tag) => ({ tag, posts: posts.filter((p) => p.data.tags.some((t) => t.id === tag.id)) }))
+    .filter((t) => t.posts.length > 0);
 }
 
 /** Минуты чтения, ~220 слов в минуту */
@@ -58,9 +43,8 @@ export function readingTime(body = ''): number {
 export function relatedPosts(post: Post, posts: Post[], limit = 3): Post[] {
   const others = posts.filter((p) => p.id !== post.id);
   const manual = post.data.related.map((r) => others.find((p) => p.id === r.id)).filter((p): p is Post => !!p);
-  const tags = new Set(post.data.tags.map(tagSlug));
-  const score = (p: Post) =>
-    (p.data.category.id === post.data.category.id ? 2 : 0) + p.data.tags.filter((t) => tags.has(tagSlug(t))).length;
+  const tags = new Set(post.data.tags.map((t) => t.id));
+  const score = (p: Post) => (p.data.category.id === post.data.category.id ? 2 : 0) + p.data.tags.filter((t) => tags.has(t.id)).length;
   const auto = others
     .filter((p) => !manual.includes(p))
     .map((p) => ({ p, s: score(p) }))
@@ -73,5 +57,5 @@ export const fmtDate = (d: Date) => d.toLocaleDateString('en-US', { year: 'numer
 
 export const postUrl = (id: string) => `/blog/${id}`;
 export const categoryUrl = (id: string) => `/blog/category/${id}`;
-export const tagUrl = (slug: string) => `/blog/tag/${slug}`;
+export const tagUrl = (id: string) => `/blog/tag/${id}`;
 export const authorUrl = (id: string) => `/blog/author/${id}`;

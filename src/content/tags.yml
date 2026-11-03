@@ -1,0 +1,38 @@
+# Допустимые теги блога. В шапке статьи указывается id: tags: ['ixo', 'future-of-money']
+# Добавить тег — добавить пункт (id: латиница, нижний регистр, дефисы; id = адрес /blog/tag/<id>).
+# Удалить — убрать пункт; если тег стоит в статьях, сборка упадёт и назовёт их.
+# description (необязательно, 50–170 символов) — вступление и meta description страницы тега.
+- id: privacy
+  name: Privacy
+- id: ixo
+  name: IXO
+- id: ai-in-practice
+  name: AI in Practice
+- id: blackrock-aladdin
+  name: BlackRock & Aladdin
+- id: holder-access
+  name: Holder Access
+- id: regulation
+  name: Regulation
+- id: future-of-money
+  name: Future of Money
+- id: 2020-election
+  name: 2020 Election
+- id: eo-13848
+  name: EO 13848
+- id: shadow-power
+  name: Shadow Power
+- id: elections-power
+  name: Elections & Power
+- id: q-codes
+  name: Q Codes
+- id: arrests-emergency
+  name: Arrests & Emergency
+- id: media-critics
+  name: Media & Critics
+- id: faith-prophecy
+  name: Faith & Prophecy
+- id: blogger-community
+  name: Blogger & Community
+- id: atom
+  name: ATOM

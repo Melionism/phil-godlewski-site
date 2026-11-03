@@ -10,7 +10,7 @@ category: ai                 # id рубрики = имя файла в src/cont
 # updatedDate: 2026-11-10                           # дата заметного обновления — видна на странице и в sitemap
 # cover: ../../assets/blog/my-post.jpg              # картинка в src/assets/blog/, путь относительно этого файла
 # coverAlt: 'Что на обложке'                         # обязателен, если есть cover
-tags: ['ai', 'founders']     # теги: тег с 3+ статьями получает индексируемую страницу
+tags: ['ixo', 'future-of-money']   # id тегов из src/content/tags.yml; тег с 3+ статьями получает индексируемую страницу
 # featured: true                                    # показать в блоке Recommended на /blog
 # related: ['other-post-id']                        # ручной список похожих статей (имена файлов без .md)
 # cta: telegram                                     # канал, который выделяется после статьи: instagram | threads | rumble | telegram | locals

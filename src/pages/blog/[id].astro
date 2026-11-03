@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro';
-import { getEntry, render } from 'astro:content';
+import { getEntry, getEntries, render } from 'astro:content';
 import { Image, getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
@@ -9,7 +9,7 @@ import Breadcrumbs from '../../components/blog/Breadcrumbs.astro';
 import FollowCta from '../../components/blog/FollowCta.astro';
 import ShareLinks from '../../components/blog/ShareLinks.astro';
 import PostGrid from '../../components/blog/PostGrid.astro';
-import { getPosts, relatedPosts, readingTime, fmtDate, tagSlug, postUrl, categoryUrl, tagUrl, authorUrl } from '../../lib/blog';
+import { getPosts, relatedPosts, readingTime, fmtDate, postUrl, categoryUrl, tagUrl, authorUrl } from '../../lib/blog';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../lib/schema';
 import { site } from '../../content/site';
 
@@ -23,6 +23,8 @@ const { data } = post;
 const { Content } = await render(post);
 const category = (await getEntry(data.category))!;
 const author = (await getEntry(data.author))!;
+const tags = await getEntries(data.tags);
+const tagNames = tags.map((t) => t.data.name);
 const origin = Astro.site ? Astro.site.origin : '';
 const url = postUrl(post.id);
 const minutes = readingTime(post.body);
@@ -43,7 +45,7 @@ const crumbs = [
   { name: data.title, href: url },
 ];
 const jsonLd = [
-  articleSchema(origin, { url, title: data.title, description: data.description, image: ogAbs, published: data.pubDate, modified: updated, section: category.data.name, tags: data.tags, words }),
+  articleSchema(origin, { url, title: data.title, description: data.description, image: ogAbs, published: data.pubDate, modified: updated, section: category.data.name, tags: tagNames, words }),
   breadcrumbSchema(origin, crumbs),
   ...(data.faq.length ? [faqSchema(data.faq)] : []),
 ];
@@ -54,7 +56,7 @@ const jsonLd = [
   path={url}
   ogImage={og}
   ogType="article"
-  article={{ published: data.pubDate, modified: updated, section: category.data.name, tags: data.tags }}
+  article={{ published: data.pubDate, modified: updated, section: category.data.name, tags: tagNames }}
   jsonLd={jsonLd}
   noindex={data.noindex}
 >
@@ -96,9 +98,9 @@ const jsonLd = [
         </section>
       )}
 
-      {data.tags.length > 0 && (
+      {tags.length > 0 && (
         <ul class="chips article__tags" aria-label="Tags">
-          {data.tags.map((t) => <li><a class="chip" href={tagUrl(tagSlug(t))}>#{t}</a></li>)}
+          {tags.map((t) => <li><a class="chip" href={tagUrl(t.id)}>#{t.data.name}</a></li>)}
         </ul>
       )}
     </article>

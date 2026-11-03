@@ -9,7 +9,7 @@
 - slug: латиница, нижний регистр, слова через дефис, до 75 символов, без дат и ID;
 - после публикации slug не менять. Если всё же сменили — старый адрес добавить в `aliases` (будет 301).
 
-Быстрый старт: `npm run new-post -- "Article title" --category ai --tags "ai, sports"` создаёт файл-черновик с шапкой. Все поля с пояснениями — в `src/content/blog/_TEMPLATE.md`.
+Быстрый старт: `npm run new-post -- "Article title" --category ai --tags "ixo, future-of-money"` создаёт файл-черновик с шапкой. Все поля с пояснениями — в `src/content/blog/_TEMPLATE.md`.
 
 ## Шапка (frontmatter)
 
@@ -19,7 +19,7 @@
 | `description` | да | 50–170 символов. Meta description, превью в соцсетях и карточках |
 | `pubDate` | да | `YYYY-MM-DD`. Будущая дата — статья появится при первой сборке после неё |
 | `category` | да | id рубрики: `technology`, `sports`, `ai`, `design`, `ventures` (или новая, см. ниже) |
-| `tags` | нет | 2–5 тегов. Тег, у которого 3+ статьи, получает свою индексируемую страницу |
+| `tags` | нет | 2–5 тегов, только id из списка `src/content/tags.yml` (см. «Теги» ниже) |
 | `seoTitle` | нет | ≤ 60 символов, если `<title>` для поиска должен отличаться от заголовка |
 | `updatedDate` | нет | дата существенного обновления — показывается на странице и в sitemap |
 | `cover` + `coverAlt` | нет | обложка из `src/assets/blog/`, путь от файла статьи: `../../assets/blog/<slug>.jpg`. `coverAlt` обязателен |
@@ -68,6 +68,38 @@ order: 5
 - Добавить рубрику — добавить файл. Страница `/blog/category/<id>` появится, когда в рубрике будет хотя бы одна статья.
 - Удалить рубрику — удалить файл. Если на неё ещё ссылаются статьи, сборка упадёт и перечислит их: сначала перенесите статьи в другую рубрику.
 - Переименовать рубрику — поменять `name`, id (имя файла) не трогать, иначе поменяются адреса.
+
+## Теги
+
+Теги — закрытый список в `src/content/tags.yml`. В статье указывается **id** тега, а на сайте показывается его название:
+
+| id | Название |
+|---|---|
+| `privacy` | Privacy |
+| `ixo` | IXO |
+| `ai-in-practice` | AI in Practice |
+| `blackrock-aladdin` | BlackRock & Aladdin |
+| `holder-access` | Holder Access |
+| `regulation` | Regulation |
+| `future-of-money` | Future of Money |
+| `2020-election` | 2020 Election |
+| `eo-13848` | EO 13848 |
+| `shadow-power` | Shadow Power |
+| `elections-power` | Elections & Power |
+| `q-codes` | Q Codes |
+| `arrests-emergency` | Arrests & Emergency |
+| `media-critics` | Media & Critics |
+| `faith-prophecy` | Faith & Prophecy |
+| `blogger-community` | Blogger & Community |
+| `atom` | ATOM |
+
+Пример: `tags: ['ixo', 'future-of-money']`.
+
+- Тег не из списка или опечатка — сборка падает и называет статью.
+- Добавить тег — дописать в `tags.yml` пункт `- id: …` / `name: …`. id: латиница, нижний регистр, дефисы; это адрес `/blog/tag/<id>`, после публикации не менять.
+- Можно добавить `description:` (50–170 символов) — он станет вступлением и meta description страницы тега.
+- Страница тега появляется, когда у него есть хотя бы одна статья; в поиск Google она открывается с 3 статей.
+- Удалить тег — убрать пункт; если он ещё стоит в статьях, сборка упадёт и перечислит их.
 
 ## Авторы
 

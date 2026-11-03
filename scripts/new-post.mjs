@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 /**
- * Новая статья-черновик: npm run new-post -- "Article title" --category ai [--tags "ai, founders"] [--date 2026-11-10]
+ * Новая статья-черновик: npm run new-post -- "Article title" --category ai [--tags "ixo, future-of-money"] [--date 2026-11-10]
  * Создаёт src/content/blog/<slug>.md с заполненной шапкой и draft: true.
  * slug: латиница, нижний регистр, дефисы, ≤ 75 символов (ТЗ, SEO-1), без совпадений с существующими.
  */
-import { existsSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
 
 const root = path.resolve(import.meta.dirname, '..');
 const blogDir = path.join(root, 'src/content/blog');
 const catDir = path.join(root, 'src/content/categories');
+const tagsFile = path.join(root, 'src/content/tags.yml');
 
 const { values, positionals } = parseArgs({
   allowPositionals: true,
@@ -49,6 +50,9 @@ if (existsSync(file)) fail(`статья ${slug}.md уже есть`);
 const date = values.date ?? new Date().toISOString().slice(0, 10);
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) fail('--date в формате YYYY-MM-DD');
 const tags = values.tags.split(',').map((t) => t.trim()).filter(Boolean);
+const knownTags = [...readFileSync(tagsFile, 'utf8').matchAll(/^- id: *(\S+)/gm)].map((m) => m[1]);
+const unknown = tags.filter((t) => !knownTags.includes(t));
+if (unknown.length) fail(`нет в src/content/tags.yml: ${unknown.join(', ')}. Доступные теги: ${knownTags.join(', ')}`);
 const q = (s) => `'${s.replaceAll("'", "''")}'`;
 
 writeFileSync(

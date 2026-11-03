@@ -33,15 +33,15 @@ npm run preview   # проверить сборку локально
 
 ## Блог
 
-Статьи — Markdown-файлы в `src/content/blog/`, рубрики — файлы в `src/content/categories/`, авторы — в `src/content/authors/`. Полная инструкция для редакции и пакетной заливки — **`docs/BLOG.md`**.
+Статьи — Markdown-файлы в `src/content/blog/`, рубрики — файлы в `src/content/categories/`, список допустимых тегов — `src/content/tags.yml`, авторы — в `src/content/authors/`. Полная инструкция для редакции и пакетной заливки — **`docs/BLOG.md`**.
 
 Коротко:
 
-1. `npm run new-post -- "Article title" --category ai --tags "ai, sports"` — создаёт черновик `src/content/blog/<slug>.md` (адрес `/blog/<slug>`).
+1. `npm run new-post -- "Article title" --category ai --tags "ixo, future-of-money"` — создаёт черновик `src/content/blog/<slug>.md` (адрес `/blog/<slug>`).
 2. Заполнить шапку (`description` 50–170, при желании обложка, `cta`, `faq`), написать текст, убрать `draft: true`.
 3. Push в `main` — сайт пересоберётся сам (поллер на сервере, ~1 мин).
 
-Сборка падает, если шапка заполнена с ошибкой (длины, несуществующая рубрика, обложка без `coverAlt`) — это и есть проверка перед публикацией.
+Сборка падает, если шапка заполнена с ошибкой (длины, несуществующая рубрика или тег, обложка без `coverAlt`) — это и есть проверка перед публикацией.
 
 Пока опубликованных постов нет, страница `/blog` и пункт меню «Blog» не создаются.
 

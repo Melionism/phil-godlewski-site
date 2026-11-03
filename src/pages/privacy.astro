@@ -1,6 +1,6 @@
 ---
 /**
- * Политика конфиденциальности (ТЗ, SEC-6). ЧЕРНОВИК: текст согласовать с клиентом перед публикацией ссылки.
+ * Политика конфиденциальности (ТЗ, SEC-6), от имени Фила. Текст согласован клиентом 2026-11-03.
  * Описывает только то, что реально есть на сайте: GA4 с Consent Mode, без рекламы и форм.
  */
 import Base from '../layouts/Base.astro';
@@ -14,7 +14,7 @@ import { site, analytics } from '../content/site';
     <p class="label">Privacy</p>
     <h1 class="h2">Privacy policy</h1>
     <div class="privacy__body">
-      <p>This website is a personal site of {site.name}. It has no user accounts and does not sell or share personal data.</p>
+      <p>This website is the personal site of {site.name} and is operated by {site.name}. It has no user accounts and does not sell or share personal data.</p>
       <h2>Analytics</h2>
       {analytics.gaId ? (
         <p>

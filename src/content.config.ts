@@ -1,6 +1,6 @@
 import { defineCollection, reference } from 'astro:content';
 import { z } from 'astro/zod';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
 
 /** Каналы Фила, на которые ведёт CTA статьи (ключи из `socials` в site.ts) */
 const channel = z.enum(['instagram', 'threads', 'rumble', 'telegram', 'locals']);
@@ -20,6 +20,18 @@ const categories = defineCollection({
     seoDescription: z.string().min(50).max(170).optional(),
     /** Порядок в списках рубрик (меньше — выше) */
     order: z.number().default(100),
+  }),
+});
+
+/**
+ * Теги — закрытый список в src/content/tags.yml. В статье можно ставить только теги из него
+ * (по id); опечатка или удалённый тег — ошибка сборки с именем статьи.
+ */
+const tags = defineCollection({
+  loader: file('src/content/tags.yml'),
+  schema: z.object({
+    name: z.string().max(40),
+    description: z.string().min(50).max(170).optional(),
   }),
 });
 
@@ -61,7 +73,8 @@ const blog = defineCollection({
         /** Обложка: путь относительно файла поста, например ../../assets/blog/my-post.jpg */
         cover: image().optional(),
         coverAlt: z.string().optional(),
-        tags: z.array(z.string()).default([]),
+        /** id тегов из src/content/tags.yml */
+        tags: z.array(reference('tags')).default([]),
         /** Показать в блоке Recommended на /blog */
         featured: z.boolean().default(false),
         /** Ручной список похожих статей (id = имя файла без .md); иначе подбираются автоматически */
@@ -79,4 +92,4 @@ const blog = defineCollection({
       .refine((d) => !d.cover || !!d.coverAlt, { message: 'coverAlt обязателен, если задан cover', path: ['coverAlt'] }),
 });
 
-export const collections = { blog, categories, authors };
+export const collections = { blog, categories, tags, authors };
