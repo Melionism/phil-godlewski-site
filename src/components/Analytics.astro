@@ -1,12 +1,16 @@
 ---
 /**
- * GA4 + Consent Mode v2 + события блога. Выводится, только если в site.ts задан analytics.gaId.
+ * GA4 (Consent Mode v2) + Яндекс.Метрика + события блога.
+ * Каждый счётчик выводится, только если в site.ts задан его id (analytics.gaId / analytics.metrikaId).
  *
- * Согласие: для EEA/UK/CH аналитика по умолчанию выключена (analytics_storage: denied),
+ * Согласие: для EEA/UK/CH GA по умолчанию выключена (analytics_storage: denied),
  * пока посетитель не нажмёт Accept в баннере; для остальных регионов — включена.
  * Рекламные хранилища выключены везде — рекламы на сайте нет.
+ * У Метрики нет режима согласия, поэтому посетителям с европейским часовым поясом
+ * (им же показывается баннер) она грузится только после Accept; остальным — сразу, если не нажат Decline.
+ * Оба скрипта подгружаются после onload, чтобы не мешать первой отрисовке (ТЗ, PERF-7).
  *
- * События (имена GA4):
+ * События (имена GA4 = цели Метрики через reachGoal):
  *   social_click {channel, placement} — переход в канал Фила (Instagram, Threads, Rumble, Telegram, Locals)
  *   cta_click {placement, link_url}     — клик по элементу с data-track="cta"
  *   share {method, item_id}             — кнопки «поделиться» (data-track="share")
@@ -14,40 +18,72 @@
  *   read_75 {item_id}                   — дочитывание статьи до 75%
  *   search {search_term}                — запрос в поиске по блогу (шлёт страница поиска)
  * placement берётся из ближайшего data-placement (nav, footer, follow, article_cta…).
+ * Отправка — через window.pgTrack(name, params), он раздаёт событие во все включённые счётчики.
  */
 import { analytics, socials } from '../content/site';
 
-const gaId = analytics.gaId;
+const { gaId, metrikaId } = analytics;
+const services = [gaId && 'Google Analytics', metrikaId && 'Yandex Metrica'].filter(Boolean).join(' and ');
 // hostname → ключ канала, чтобы ловить любые ссылки на каналы без ручной разметки
 const channelHosts = Object.fromEntries(Object.entries(socials).map(([key, s]) => [new URL(s.url).hostname.replace(/^www\./, ''), key]));
 // EEA + UK + CH (ISO 3166-1 alpha-2) — регионы, где без согласия аналитика выключена
 const consentRegions = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH'];
 ---
-{gaId && (
+{services && (
   <>
-    <script is:inline define:vars={{ gaId, consentRegions }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      window.gtag = gtag;
-      const off = { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' };
-      gtag('consent', 'default', { ...off, analytics_storage: 'denied', region: consentRegions, wait_for_update: 500 });
-      gtag('consent', 'default', { ...off, analytics_storage: 'granted' });
+    <script is:inline define:vars={{ gaId, metrikaId, consentRegions }}>
       let choice = null;
       try { choice = localStorage.getItem('pg-consent'); } catch {}
-      if (choice) gtag('consent', 'update', { analytics_storage: choice === 'granted' ? 'granted' : 'denied' });
-      gtag('js', new Date());
-      gtag('config', gaId);
-      // gtag.js грузим после onload, чтобы не мешать первой отрисовке (ТЗ, PERF-7); события копятся в dataLayer
-      addEventListener('load', () => {
+      const needsConsent = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').startsWith('Europe/');
+      const afterLoad = (fn) => (document.readyState === 'complete' ? fn() : addEventListener('load', fn));
+      const addScript = (src) => {
         const s = document.createElement('script');
         s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+        s.src = src;
         document.head.appendChild(s);
-      });
+      };
+
+      if (gaId) {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function gtag() { dataLayer.push(arguments); };
+        const off = { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' };
+        gtag('consent', 'default', { ...off, analytics_storage: 'denied', region: consentRegions, wait_for_update: 500 });
+        gtag('consent', 'default', { ...off, analytics_storage: 'granted' });
+        if (choice) gtag('consent', 'update', { analytics_storage: choice === 'granted' ? 'granted' : 'denied' });
+        gtag('js', new Date());
+        gtag('config', gaId);
+        // события копятся в dataLayer до загрузки gtag.js
+        afterLoad(() => addScript('https://www.googletagmanager.com/gtag/js?id=' + gaId));
+      }
+
+      // Метрика: заглушка ym копит вызовы до загрузки tag.js (как в официальном коде счётчика)
+      let metrikaOn = false;
+      const startMetrika = () => {
+        if (!metrikaId || metrikaOn) return;
+        metrikaOn = true;
+        window.ym = window.ym || function ym() { (ym.a = ym.a || []).push(arguments); };
+        ym.l = 1 * new Date();
+        ym(metrikaId, 'init', {
+          ssr: true, webvisor: true, clickmap: true, ecommerce: 'dataLayer',
+          referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true,
+        });
+        afterLoad(() => addScript('https://mc.yandex.ru/metrika/tag.js?id=' + metrikaId));
+      };
+      if (choice === 'granted' || (!needsConsent && choice !== 'denied')) startMetrika();
+
+      window.pgTrack = (name, params) => {
+        if (gaId) gtag('event', name, params);
+        if (metrikaOn) ym(metrikaId, 'reachGoal', name, params);
+      };
+      window.pgConsent = { needsConsent, choice, set(value) {
+        try { localStorage.setItem('pg-consent', value); } catch {}
+        if (gaId) gtag('consent', 'update', { analytics_storage: value });
+        if (value === 'granted') startMetrika();
+      } };
     </script>
 
     <div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-      <p>We use Google Analytics cookies to understand which articles are read. <a href="/privacy">Privacy</a></p>
+      <p>We use {services} cookies to understand which articles are read{metrikaId ? ', including anonymised session recordings' : ''}. <a href="/privacy">Privacy</a></p>
       <div class="consent__actions">
         <button type="button" class="btn btn--ghost" data-consent="denied">Decline</button>
         <button type="button" class="btn btn--primary" data-consent="granted">Accept</button>
@@ -56,18 +92,15 @@ const consentRegions = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','
 
     <script is:inline define:vars={{ channelHosts }}>
       (() => {
-        const gtag = window.gtag;
+        const track = window.pgTrack;
+        const consent = window.pgConsent;
         // Баннер — только посетителям из европейских часовых поясов, которые ещё не выбрали
         const box = document.getElementById('consent');
-        let stored = null;
-        try { stored = localStorage.getItem('pg-consent'); } catch {}
-        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-        if (box && !stored && tz.startsWith('Europe/')) box.hidden = false;
+        if (box && !consent.choice && consent.needsConsent) box.hidden = false;
         box?.addEventListener('click', (e) => {
           const value = e.target.closest('[data-consent]')?.dataset.consent;
           if (!value) return;
-          try { localStorage.setItem('pg-consent', value); } catch {}
-          gtag('consent', 'update', { analytics_storage: value });
+          consent.set(value);
           box.hidden = true;
         });
 
@@ -77,12 +110,12 @@ const consentRegions = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','
           if (!a) return;
           const url = new URL(a.href, location.href);
           const tracked = a.dataset.track;
-          if (tracked === 'share') return gtag('event', 'share', { method: a.dataset.method, item_id: location.pathname });
+          if (tracked === 'share') return track('share', { method: a.dataset.method, item_id: location.pathname });
           const channel = channelHosts[url.hostname.replace(/^www\./, '')];
-          if (channel) gtag('event', 'social_click', { channel, placement: placementOf(a), link_url: url.href });
-          if (tracked === 'cta') gtag('event', 'cta_click', { placement: placementOf(a), link_url: url.href });
+          if (channel) track('social_click', { channel, placement: placementOf(a), link_url: url.href });
+          if (tracked === 'cta') track('cta_click', { placement: placementOf(a), link_url: url.href });
           else if (url.origin === location.origin && location.pathname.startsWith('/blog') && url.pathname !== location.pathname)
-            gtag('event', 'internal_link_click', { link_url: url.pathname });
+            track('internal_link_click', { link_url: url.pathname });
         });
 
         // Дочитывание: низ статьи прошёл 75% её высоты
@@ -91,7 +124,7 @@ const consentRegions = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','
           const onScroll = () => {
             const r = article.getBoundingClientRect();
             if (innerHeight - r.top >= r.height * 0.75) {
-              gtag('event', 'read_75', { item_id: location.pathname });
+              track('read_75', { item_id: location.pathname });
               removeEventListener('scroll', onScroll);
             }
           };

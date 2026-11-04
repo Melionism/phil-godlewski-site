@@ -33,10 +33,12 @@ export type Channel = (typeof socialOrder)[number];
 /**
  * Аналитика. Значения публичные (видны в HTML), это не секреты.
  * gaId — Measurement ID ресурса GA4 вида G-XXXXXXXXXX; пусто — скрипт GA не выводится.
+ * metrikaId — номер счётчика Яндекс.Метрики; 0 — скрипт Метрики не выводится.
  * gscVerification — содержимое meta google-site-verification (если домен подтверждают не через DNS).
  */
 export const analytics = {
-  gaId: '',
+  gaId: 'G-ZHVCWTLE7M',
+  metrikaId: 114053739,
   gscVerification: '',
 };
 

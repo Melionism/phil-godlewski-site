@@ -102,7 +102,7 @@ const latest = posts.slice(0, 5);
     render(hits, q);
     if (q !== lastTracked) {
       lastTracked = q;
-      (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'search', { search_term: q });
+      (window as unknown as { pgTrack?: (name: string, params: object) => void }).pgTrack?.('search', { search_term: q });
     }
   }
 

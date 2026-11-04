@@ -57,7 +57,7 @@ npm run preview   # проверить сборку локально
 
 ## Аналитика
 
-GA4 — `analytics.gaId` в `src/content/site.ts` (пусто — скрипт не выводится). Consent Mode v2: для EEA/UK/CH аналитика включается только после Accept в баннере. События и их параметры описаны в `src/components/Analytics.astro`; ключевое — `social_click` (переход в канал Фила, параметры `channel`, `placement`).
+GA4 — `analytics.gaId`, Яндекс.Метрика — `analytics.metrikaId` в `src/content/site.ts` (пусто/0 — скрипт не выводится). Consent Mode v2: для EEA/UK/CH аналитика GA включается только после Accept в баннере; Метрика посетителям с европейским часовым поясом грузится только после Accept. События и их параметры описаны в `src/components/Analytics.astro`, в Метрику они уходят целями с теми же именами (`reachGoal`); ключевое — `social_click` (переход в канал Фила, параметры `channel`, `placement`). Цели в интерфейсе Метрики заводятся типом «JavaScript-событие» с этими идентификаторами.
 
 ## Деплой
 

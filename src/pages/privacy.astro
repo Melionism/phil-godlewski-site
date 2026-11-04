@@ -1,7 +1,8 @@
 ---
 /**
  * Политика конфиденциальности (ТЗ, SEC-6), от имени Фила. Текст согласован клиентом 2026-11-03.
- * Описывает только то, что реально есть на сайте: GA4 с Consent Mode, без рекламы и форм.
+ * Описывает только то, что реально есть на сайте: GA4 с Consent Mode, Яндекс.Метрика с Вебвизором, без рекламы и форм.
+ * Абзац о Метрике добавлен 2026-11-04 вместе со счётчиком — требует согласования клиентом.
  */
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
@@ -16,10 +17,21 @@ import { site, analytics } from '../content/site';
     <div class="privacy__body">
       <p>This website is the personal site of {site.name} and is operated by {site.name}. It has no user accounts and does not sell or share personal data.</p>
       <h2>Analytics</h2>
-      {analytics.gaId ? (
+      {analytics.gaId && (
         <p>
           We use Google Analytics 4 to understand which pages and articles are read and which links visitors follow.
           Google Analytics sets cookies and processes your IP address and device information on behalf of the site.
+        </p>
+      )}
+      {analytics.metrikaId > 0 && (
+        <p>
+          We also use Yandex Metrica for the same purpose. It sets cookies, processes your IP address and device information,
+          and records anonymised replays of how pages are scrolled and clicked (Session Replay). The site has no forms, so no typed text is recorded.
+          Yandex Metrica is provided by Yandex and its data may be processed outside your country.
+        </p>
+      )}
+      {analytics.gaId || analytics.metrikaId > 0 ? (
+        <p>
           In the European Economic Area, the UK and Switzerland analytics cookies are only set after you click “Accept” in the cookie banner.
           You can change your choice at any time by clearing this site’s data in your browser.
         </p>

@@ -45,7 +45,9 @@
 			-Server
 			X-Content-Type-Options "nosniff"
 			Referrer-Policy "strict-origin-when-cross-origin"
-			X-Frame-Options "SAMEORIGIN"
+			# Вместо X-Frame-Options SAMEORIGIN: Вебвизор и карты кликов Метрики показывают сайт в iframe.
+			# Список доменов — yandex.ru/support/metrica/ru/code/install-counter-csp + webvisor.com
+			Content-Security-Policy "frame-ancestors 'self' https://webvisor.com https://*.webvisor.com https://metrika.yandex.ru https://metrika.yandex.by https://metrika.yandex.kz https://metrika.yandex.uz https://metrika.yandex.com https://metrika.yandex.com.tr https://metrika.yandex https://metrika.ya.ru https://metrica.yandex.ru https://metrica.yandex.by https://metrica.yandex.kz https://metrica.yandex.com https://metrica.yandex.com.tr https://metrica.yandex https://metrica.ya.ru https://metr.yandex.ru https://metr.yandex.by https://metr.yandex.kz https://metr.yandex.com https://metr.yandex.com.tr https://analytics.yandex.ru https://analytics.yandex.by https://analytics.yandex.kz https://analytics.yandex.com https://analytics.yandex.com.tr"
 		}
 
 		try_files {path}/index.html {path}.html {path}
