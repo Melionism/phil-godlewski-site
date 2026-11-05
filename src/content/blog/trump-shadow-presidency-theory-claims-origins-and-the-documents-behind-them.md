@@ -1,10 +1,10 @@
 ---
-title: 'Trump Shadow Presidency Theory: Claims, Origins and the Documents Behind Them'
+title: 'Trump Shadow Presidency Theory: Claims, Origins and Documents'
 seoTitle: 'Trump Shadow Presidency Theory: Claims, Documents & Origins'
-description: 'Explores the Trump shadow presidency theory, its devolution origins, key documents like Executive Orders 13848 and 13961, and the claims of a covert continuity of government.'
+description: 'Explores the Trump shadow presidency theory, its devolution origins, key documents like Executive Orders 13848 and 13961, and claims of covert continuity of government.'
 pubDate: 2026-11-05
 category: politics
-tags: ["trump-shadow-presidency", "devolution-theory", "continuity-of-government", "executive-orders", "patel-patriot"]
+tags: ['shadow-power', 'eo-13848', '2020-election', 'elections-power']
 cta: rumble
 faq:
   - q: 'What is the Trump shadow presidency theory?'
