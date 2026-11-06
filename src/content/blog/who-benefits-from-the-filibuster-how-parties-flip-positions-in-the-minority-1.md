@@ -1,9 +1,9 @@
 ---
-title: 'Who Benefits From the Filibuster? How Parties Flip Positions in the Minority'
+title: 'Who Benefits From the Filibuster? Party Position Flips'
 seoTitle: 'Who Benefits From the Filibuster? Party Flip-Flops Explained'
 description: 'Explores how both parties flip on the filibuster depending on majority status, with 2022, 2026, and 2027 Senate examples showing the minority always benefits.'
 pubDate: 2026-11-09
-category: politics
+category: midterms-2026
 tags: ["elections-power", "regulation", "shadow-power"]
 cta: rumble
 faq:
