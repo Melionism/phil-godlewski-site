@@ -3,7 +3,7 @@ title: 'Digital Privacy: A Complete Guide to Your Data and How to Protect It'
 seoTitle: 'Digital Privacy Guide: Protect Your Data Online'
 description: 'Learn what digital privacy means, why 73% of US adults feel they have no control over their data, and practical steps to protect your online information.'
 pubDate: 2026-10-27
-category: technology
+category: privacy
 tags: ["privacy", "regulation"]
 cta: rumble
 faq:
