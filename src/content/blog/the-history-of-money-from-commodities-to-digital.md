@@ -4,7 +4,7 @@ seoTitle: 'History of Money: From Commodities to Digital Currency'
 description: 'Explore the evolution of money from barter and gold-backed coins to modern fiat currency and digital payments, including key moments like Bretton Woods and Nixon''s gold w'
 pubDate: 2026-11-02
 category: future-of-money
-tags: ["future-of-money"]
+tags: ["future-of-money", "ai-in-practice"]
 cta: rumble
 faq:
   - q: 'What is the history of money?'
