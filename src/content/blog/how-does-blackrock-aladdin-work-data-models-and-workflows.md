@@ -3,7 +3,7 @@ title: 'How Does BlackRock Aladdin Work? Data, Models and Workflows'
 seoTitle: 'How BlackRock Aladdin Works: Data, Models & Workflows'
 description: 'Explore how BlackRock Aladdin processes holdings and market data through risk models to deliver portfolio analytics, compliance checks, and trading tools on a unified pla'
 pubDate: 2026-10-26
-category: technology
+category: blackrock-aladdin
 tags: ["blackrock-aladdin", "future-of-money", "ai-in-practice", "regulation"]
 cta: rumble
 faq:
