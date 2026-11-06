@@ -1,10 +1,10 @@
 ---
-title: 'How the President''s Party Usually Does in Midterms: The Historical Record'
+title: 'How the President Party Does in Midterms: The Historical Record'
 seoTitle: 'Midterm Election History: President''s Party Losses 1946-2026'
 description: 'Historical analysis of midterm election patterns showing the president''s party lost House seats in 18 of 20 midterms since 1946, with 2026 Republicans losing both chamber'
 pubDate: 2026-10-28
 category: midterms-2026
-tags: ["elections-power"]
+tags: ["elections-power", "regulation"]
 cta: rumble
 faq:
   - q: 'Does the president''s party usually lose midterms?'
