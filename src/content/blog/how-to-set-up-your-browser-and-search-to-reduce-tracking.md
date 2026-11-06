@@ -4,7 +4,7 @@ seoTitle: 'Browser Privacy Settings to Reduce Tracking in 2025'
 description: 'Learn essential browser privacy settings to reduce tracking, including blocking third-party cookies, managing site permissions, and using private search engines. Test you'
 pubDate: 2026-11-06
 category: privacy
-tags: ["privacy"]
+tags: ["privacy", "holder-access"]
 cta: rumble
 faq:
   - q: 'What are the most private browser settings?'
