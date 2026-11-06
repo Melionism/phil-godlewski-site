@@ -2,7 +2,7 @@
 title: 'Devolution Theory: What It Claims and What the Term Really Means'
 seoTitle: 'Devolution Theory Explained: Claims vs Government Definition'
 description: 'Explore devolution theory''s claims about Trump using continuity-of-government plans in 2020-2021 versus FEMA''s official definition of emergency authority transfer.'
-pubDate: 2026-11-06
+pubDate: 2026-10-26
 category: technology
 tags: ["elections-power", "q-codes"]
 cta: rumble
