@@ -3,7 +3,7 @@ title: 'The Great Financial Reset: Where the Idea Came From and What''s Myth'
 seoTitle: 'Great Financial Reset: Origins, Myths & Real Reform'
 description: 'The Great Reset began as a 2020 WEF initiative but morphed into viral claims of a single global financial switch. Real change comes through laws like the 2025 GENIUS Act,'
 pubDate: 2026-10-27
-category: technology
+category: future-of-money
 tags: ["future-of-money", "regulation", "shadow-power"]
 cta: rumble
 faq:
