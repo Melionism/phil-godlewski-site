@@ -1,10 +1,10 @@
 ---
-title: 'Aladdin Trading and Compliance: What Part of the Investor''s Job It Covers'
+title: 'Aladdin Trading and Compliance: What It Covers for Investors'
 seoTitle: 'Aladdin Trading & Compliance: Order Management & Limits'
 description: 'Explore how BlackRock Aladdin handles trading and compliance, covering order management, pre-trade limits, and post-trade checks.'
 pubDate: 2026-10-30
 category: blackrock-aladdin
-tags: ["blackrock-aladdin"]
+tags: ["blackrock-aladdin", "regulation"]
 cta: rumble
 faq:
   - q: 'What is Aladdin trading and compliance?'
