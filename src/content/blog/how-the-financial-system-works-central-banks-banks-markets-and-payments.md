@@ -1,10 +1,10 @@
 ---
-title: 'How the Financial System Works: Central Banks, Banks, Markets and Payments'
+title: 'How the Financial System Works: Banks, Markets and Payments'
 seoTitle: 'How the Financial System Works: Complete Guide'
 description: 'Learn how the financial system works through its four core components: central banks, commercial banks, markets, and payment systems.'
 pubDate: 2026-10-27
 category: technology
-tags: ["future-of-money"]
+tags: ["future-of-money", "regulation"]
 cta: rumble
 faq:
   - q: 'How does the financial system work?'
