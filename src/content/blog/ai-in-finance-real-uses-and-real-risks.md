@@ -2,7 +2,7 @@
 title: 'AI in Finance: Real Uses and Real Risks'
 description: 'AI in finance is already transforming fraud detection, credit underwriting, trading, and customer service. Learn the real uses and risks from Treasury''s 2024 report.'
 pubDate: 2026-10-27
-category: technology
+category: future-of-money
 tags: ["ai-in-practice", "regulation"]
 cta: rumble
 faq:
