@@ -3,7 +3,7 @@ title: 'BlackRock Aladdin in Simple Terms: One Portfolio, Step by Step'
 seoTitle: 'BlackRock Aladdin Explained Simply: One Portfolio Walkthroug'
 description: 'BlackRock Aladdin explained simply: a step-by-step walkthrough of how the platform handles risk analytics, portfolio management, and trade execution using a sample pensio'
 pubDate: 2026-10-26
-category: technology
+category: blackrock-aladdin
 tags: ["blackrock-aladdin", "ai-in-practice", "regulation"]
 cta: rumble
 faq:
