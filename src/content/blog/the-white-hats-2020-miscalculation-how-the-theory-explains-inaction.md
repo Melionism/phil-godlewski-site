@@ -1,5 +1,5 @@
 ---
-title: 'The White Hats'' 2020 ''Miscalculation'': How the Theory Explains Inaction'
+title: 'The White Hats 2020 Miscalculation: How the Theory Explains Inaction'
 seoTitle: 'White Hats 2020 Miscalculation Theory Explained'
 description: 'Explores the white hats'' 2020 miscalculation theory versus devolution claims that election fraud was intentional, citing EO 13848 and distraction by Russia probe and impe'
 pubDate: 2026-10-30
