@@ -1,5 +1,5 @@
 ---
-title: 'Who Sets Election Rules in the US? States, Congress, the President and Courts'
+title: 'Who Sets Election Rules in the US? States, Congress and Courts'
 seoTitle: 'Who Sets US Election Rules? States, Congress & Courts Explai'
 description: 'Explains who sets US election rules: state legislatures first, Congress can override, President lacks direct authority, courts referee disputes. Covers the SAVE America A'
 pubDate: 2026-10-28
