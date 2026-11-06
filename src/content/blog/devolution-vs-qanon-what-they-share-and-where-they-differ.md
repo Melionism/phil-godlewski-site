@@ -3,7 +3,7 @@ title: 'Devolution vs QAnon: What They Share and Where They Differ'
 seoTitle: 'Devolution vs QAnon: Key Differences Explained'
 description: 'Explore the key similarities and differences between devolution theory and QAnon, including origins, structure, and core beliefs about Trump and the military.'
 pubDate: 2026-10-26
-category: ai
+category: politics
 tags: ["2020-election", "q-codes", "shadow-power", "media-critics"]
 cta: rumble
 faq:
