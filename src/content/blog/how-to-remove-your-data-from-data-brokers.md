@@ -4,7 +4,7 @@ seoTitle: 'How to Remove Your Data From Data Brokers - Complete Guide'
 description: 'Learn how to remove your personal data from data brokers and people-search sites with step-by-step opt-out methods, including California''s new DROP tool.'
 pubDate: 2026-11-02
 category: privacy
-tags: ["privacy"]
+tags: ["privacy", "holder-access"]
 cta: rumble
 faq:
   - q: 'How do I remove my personal information from the internet?'
