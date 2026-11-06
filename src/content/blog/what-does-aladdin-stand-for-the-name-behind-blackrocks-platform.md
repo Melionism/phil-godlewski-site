@@ -3,7 +3,7 @@ title: 'What Does Aladdin Stand For? The Name Behind BlackRock''s Platform'
 seoTitle: 'What Does Aladdin Stand For? BlackRock Platform Acronym'
 description: 'Discover what Aladdin stands for at BlackRock. The acronym reveals Asset, Liability, Debt and Derivative Investment Network — the platform powering $1.6B in tech revenue.'
 pubDate: 2026-10-26
-category: technology
+category: blackrock-aladdin
 tags: ["blackrock-aladdin", "future-of-money"]
 cta: rumble
 faq:
