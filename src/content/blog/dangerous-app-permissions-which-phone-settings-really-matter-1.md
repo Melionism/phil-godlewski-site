@@ -4,7 +4,7 @@ seoTitle: 'Dangerous App Permissions: Protect Your Phone Privacy'
 description: 'Learn which app permissions are dangerous and how to protect your privacy on Android and iPhone by managing location, microphone, camera, and tracking access.'
 pubDate: 2026-11-09
 category: privacy
-tags: ["privacy"]
+tags: ["privacy", "holder-access"]
 cta: rumble
 faq:
   - q: 'Which app permissions should I deny?'
