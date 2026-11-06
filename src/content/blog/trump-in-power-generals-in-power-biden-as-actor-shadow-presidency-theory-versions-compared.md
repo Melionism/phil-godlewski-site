@@ -20,7 +20,7 @@ faq:
 ---
 
 
-![](/content_images/3a62865ac09c4bd7ab6ffe02110dfc7d_YekJhRh.webp)
+
 All right, guys, here's the thing a lot of people miss. There isn't one shadow presidency theory. There are three main shadow presidency theory versions, and they answer one question differently: who was really in charge from 2021 to 2025? Trump himself, the military, or nobody behind a Biden who was only playing a part [1][2][3].
 
 All three grew out of the devolution series that Patel Patriot started on July 2, 2021 [4].
@@ -50,7 +50,7 @@ The "military running country theory" puts the generals in the driver's seat. Pa
 Part 9 makes a point about the chain of command too: "The Joint Chiefs of Staff are nowhere within the Chain of Command" [2]. Part 8, published August 9, 2021, names December 15, 2020 as the date the military moved from planning to carrying out devolution [7].
 
 
-![Was the military running the country?](/content_images/544d4e475b3140e89b6772140d7112c3_2AIY2j6.webp)
+
 ## Was Biden only an actor?
 
 The "biden actor theory" is the most visual one. In "Does Devolution Require Trump's Return?", Patel Patriot calls the inauguration "fauxnaugurated" and says Biden is "on a set replica of the WH almost always" [3]. He also uses the name "byeden administration" [3].
@@ -69,7 +69,7 @@ More than you'd think. All three start from the same place and point to the same
 - **It covers the executive branch.** "It only applies to the Executive branch" [3].
 
 
-![What do all three versions agree on?](/content_images/80710fb189ef4e538523b11d6081beaa_GWCCEMZ.webp)
+
 ## Which evidence does each version point to?
 
 I need you to see this side by side, because each version leans on a different kind of proof.
@@ -101,7 +101,7 @@ Part 8 even treats Biden's inauguration as a required step: "Biden assuming offi
 The author himself admits the limits. In Part 25 he writes: "Anybody claiming to know for a fact that a PEAD(s) has been implemented is lying" [10].
 
 
-![Where do the versions contradict each other?](/content_images/5746a292386344ce8fd7a2049251378b_K2lc7rM.webp)
+
 ## How do you pick between the versions?
 
 This isn't a "trust me" thing. This is "verify me." Three questions help:
