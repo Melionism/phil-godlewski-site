@@ -3,7 +3,7 @@ title: 'What Is BlackRock Aladdin? A Complete Guide to the Platform'
 seoTitle: 'What Is BlackRock Aladdin? Complete Platform Guide'
 description: 'Complete guide to BlackRock Aladdin platform: investment risk management system, $2B revenue, $15.5T AUM, features, competitors and criticism.'
 pubDate: 2026-10-26
-category: technology
+category: blackrock-aladdin
 tags: ["blackrock-aladdin", "future-of-money", "regulation"]
 cta: rumble
 faq:
