@@ -4,7 +4,7 @@ seoTitle: 'BlackRock Aladdin Competitors: MSCI, SimCorp & Charles River'
 description: 'Explore BlackRock Aladdin''s main competitors — MSCI, SimCorp (Deutsche Börse), Charles River (State Street) — plus Bloomberg PORT and Addepar, with ownership and strength'
 pubDate: 2026-11-04
 category: blackrock-aladdin
-tags: ["blackrock-aladdin"]
+tags: ["blackrock-aladdin", "regulation"]
 cta: rumble
 faq:
   - q: 'Who are BlackRock Aladdin competitors?'
