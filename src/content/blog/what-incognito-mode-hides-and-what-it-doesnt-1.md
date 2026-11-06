@@ -4,7 +4,7 @@ seoTitle: 'Incognito Mode: What It Hides vs What It Doesn''t'
 description: 'Learn what incognito mode actually hides — and the limits of private browsing. Websites, ISPs, and employers can still see your activity.'
 pubDate: 2026-11-07
 category: privacy
-tags: ["privacy"]
+tags: ["privacy", "holder-access"]
 cta: rumble
 faq:
   - q: 'What does incognito mode hide?'
