@@ -2,7 +2,7 @@
 title: 'Devolution Theory Timeline: How the Claims Changed From 2020 to 2024'
 seoTitle: 'Devolution Theory Timeline 2020-2024'
 description: 'A chronological timeline tracing the evolution of devolution theory claims from 2020 through 2024, documenting key events, documents, and narrative shifts.'
-pubDate: 2026-11-06
+pubDate: 2026-10-26
 category: politics
 tags: ["elections-power", "q-codes"]
 cta: rumble
