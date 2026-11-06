@@ -20,7 +20,7 @@ faq:
 ---
 
 
-![](/content_images/0409647e37eb414b8d9fbbf12a4d32a3_O9ondIy.webp)
+
 All right, guys, devolution theory explained, plain and simple. Devolution theory says Trump used a real continuity-of-government mechanism before January 20, 2021 to keep authority with loyal officials and the military [1][2]. The term itself is official: FEMA defines devolution as moving an agency's authority to backup staff and facilities in a catastrophic emergency [3].
 
 So there are two meanings here. One is the government term. The other is the theory built on top of it. I need you to keep them apart while you read.
@@ -67,7 +67,7 @@ The series stands on public paper plus a few classified items. Here are the main
 I need you to see this part clearly. EO 13961 speaks of "continuity of operations, continuity of government, and enduring constitutional government" [6]. The word "devolution" is not in it. The link is the author's reading [2][6].
 
 
-![Which documents does devolution theory rely on?](/content_images/72f07014029247809650ceae8509e9df.webp)
+
 ## Does devolution require Trump's return?
 
 Patel Patriot answers that one in a post of its own. He leans on the continuity phrase "resume normal operations" and writes: "The 'normal operations' before devolution was initiated had Trump as the President of the United States" [10].
@@ -93,7 +93,7 @@ The theory has its own vocabulary: white hats, the plan, PEADs, wartime presiden
 One example. "Trust the plan" first appears in Q's posts on March 6, 2018, in post 858 [11]. "Wartime president" comes from Part 4 of devolution [8].
 
 
-![Which key terms do believers use?](/content_images/78aad93ac79f45d3b57f7a06d07b80b0.webp)
+
 ## How did the series grow?
 
 Fast. Part 1 went up on July 2, 2021 [1]. By August 4, 2021 seven parts were out, and Praying Medic summarized all seven [16]. Part 13 followed on November 4, 2021 [7].
@@ -111,7 +111,7 @@ Do you remember what Part 1 said in July 2021? I'll give you a hint: one word, s
 On January 20, 2025, Trump gave his second inaugural address [15]. See [the theory's history year by year](/blog/devolution-theory-timeline/), and the question of whether you [can military secretly run us](/blog/can-military-secretly-run-us/) in our legal breakdown.
 
 
-![How did the story change over time?](/content_images/acce2e36e1f84952bef14d2ea3a213b8_qDnx2zj.webp)
+
 ## FAQ
 
 **What is devolution theory?** The claim that Trump used a continuity-of-government plan to keep authority after January 20, 2021 [2].
