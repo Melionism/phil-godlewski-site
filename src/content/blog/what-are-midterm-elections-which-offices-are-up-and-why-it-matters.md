@@ -4,7 +4,7 @@ seoTitle: 'Midterm Elections Explained: Offices, Patterns & Why They Ma'
 description: 'Learn what midterm elections are, which offices are on the ballot, and why they matter for control of Congress.'
 pubDate: 2026-10-28
 category: midterms-2026
-tags: ["elections-power"]
+tags: ["elections-power", "regulation"]
 cta: rumble
 faq:
   - q: 'What are midterm elections?'
