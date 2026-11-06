@@ -1,5 +1,5 @@
 ---
-title: 'What Documents Prove Citizenship to Vote? Passports, Birth Certificates and REAL ID'
+title: 'What Documents Prove Citizenship to Vote? Passports and ID'
 seoTitle: 'Documents That Prove Citizenship to Vote: Passports, Birth C'
 description: 'Learn which documents prove U.S. citizenship for voter registration, including passports, birth certificates, naturalization papers, and REAL ID requirements under the SA'
 pubDate: 2026-11-03
