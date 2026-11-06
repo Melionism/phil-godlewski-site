@@ -4,7 +4,7 @@ seoTitle: 'What Is Metadata? Why It Reveals More Than You Think'
 description: 'Learn how metadata from calls, texts, and emails reveals sensitive personal details like health conditions and relationships. Discover practical ways to limit metadata ex'
 pubDate: 2026-10-29
 category: privacy
-tags: ["privacy"]
+tags: ["privacy", "media-critics"]
 cta: rumble
 faq:
   - q: 'What is metadata?'
