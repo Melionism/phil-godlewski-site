@@ -1,5 +1,5 @@
 ---
-title: 'Primary Sources on the 2020 Election: State Sites, Court Archives and Documents'
+title: 'Primary Sources on the 2020 Election: Courts and Documents'
 seoTitle: '2020 Election Primary Sources: State Sites, Court Archives &'
 description: 'Find verified 2020 election primary sources: state certified results, court opinions, audit reports, and federal documents. Links to FEC, National Archives, and state ele'
 pubDate: 2026-11-03
