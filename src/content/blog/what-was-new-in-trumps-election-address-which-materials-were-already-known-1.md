@@ -1,9 +1,9 @@
 ---
-title: 'What Was New in Trump''s Election Address? Which Materials Were Already Known'
+title: 'Trump''s Election Address: New vs Previously Known Materials'
 seoTitle: 'Trump''s Election Address: New vs Known Intelligence'
 description: 'Analysis of Trump''s July 2026 election address separating newly declassified memos from previously public intelligence on 2020 election interference.'
 pubDate: 2026-11-07
-category: politics
+category: election-2020
 tags: ["2020-election", "elections-power"]
 cta: rumble
 faq:
