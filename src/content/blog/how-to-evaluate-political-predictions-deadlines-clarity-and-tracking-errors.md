@@ -1,5 +1,5 @@
 ---
-title: 'How to Evaluate Political Predictions: Deadlines, Clarity and Tracking Errors'
+title: 'How to Evaluate Political Predictions: Clarity and Tracking'
 seoTitle: 'How to Evaluate Political Predictions: Deadlines & Clarity'
 description: 'Learn how to evaluate political predictions using deadlines, clarity, and tracking errors. Hold forecasters accountable with a simple three-part test.'
 pubDate: 2026-10-31
