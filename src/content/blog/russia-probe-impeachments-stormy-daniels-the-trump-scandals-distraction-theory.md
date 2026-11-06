@@ -1,5 +1,5 @@
 ---
-title: 'Russia Probe, Impeachments, Stormy Daniels: The Trump Scandals Distraction Theory'
+title: 'Russia Probe, Impeachments, Stormy Daniels: Trump Distraction Theory'
 seoTitle: 'Trump Scandals Distraction Theory: Russia, Impeachments, Dec'
 description: 'Explore the Trump scandals distraction theory covering Russia probe, two impeachments, and Stormy Daniels as either accidental distractions or deliberate decoys for white'
 pubDate: 2026-10-30
