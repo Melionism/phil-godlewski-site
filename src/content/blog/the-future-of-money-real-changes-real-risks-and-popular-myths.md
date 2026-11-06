@@ -3,7 +3,7 @@ title: 'The Future of Money: Real Changes, Real Risks and Popular Myths'
 seoTitle: 'Future of Money: Real Changes, Risks & Myths Debunked'
 description: 'Explore real changes in money: instant payments, regulated stablecoins, and why a US digital dollar isn''t coming. Separate facts from ''great reset'' myths with verified so'
 pubDate: 2026-10-27
-category: ventures
+category: future-of-money
 tags: ["future-of-money", "regulation", "ai-in-practice", "holder-access", "ixo"]
 cta: rumble
 faq:
