@@ -4,7 +4,7 @@ seoTitle: 'BRICS Dollar Alternatives: Plans vs Reality 2024'
 description: 'BRICS is not launching a gold-backed currency to replace the dollar. The 2024 Kazan summit focused on local-currency trade and linking payment systems while the dollar re'
 pubDate: 2026-11-07
 category: future-of-money
-tags: ["future-of-money"]
+tags: ["future-of-money", "regulation"]
 cta: rumble
 faq:
   - q: 'Is there a BRICS currency?'
