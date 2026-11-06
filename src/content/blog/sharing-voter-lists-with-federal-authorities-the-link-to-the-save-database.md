@@ -1,5 +1,5 @@
 ---
-title: 'Sharing Voter Lists With Federal Authorities: The Link to the SAVE Database'
+title: 'Voter Lists and the SAVE Database: Federal Access Explained'
 seoTitle: 'SAVE Database Voter Roll Checks: Federal Link, Errors & Cour'
 description: 'Explores how DHS overhauled the SAVE database to link voter rolls with Social Security records, checking 65M+ voters, flagging thousands, and sparking legal battles over'
 pubDate: 2026-11-06
