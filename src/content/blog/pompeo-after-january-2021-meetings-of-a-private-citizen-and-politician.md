@@ -1,5 +1,5 @@
 ---
-title: 'Pompeo After January 2021: Meetings of a Private Citizen and Politician'
+title: 'Pompeo After January 2021: Private Citizen and Politician'
 seoTitle: 'Pompeo After January 2021: Roles, Meetings & 2024 Decision'
 description: 'Mike Pompeo''s post-2021 roles include Fox News contributor, Hudson Institute fellow, and Taiwan visit. Details on his private citizen meetings and political activities.'
 pubDate: 2026-11-01
