@@ -1,5 +1,5 @@
 ---
-title: 'How Presidential and Congressional Terms Work: Key Dates From 2026 to 2029'
+title: 'Presidential and Congressional Terms: Key Dates 2026–2029'
 seoTitle: 'Presidential & Congressional Terms: Key Dates 2026–2029'
 description: 'Clear timeline of U.S. federal term dates from 2026–2029: when Congress convenes, the next election, and the presidential inauguration.'
 pubDate: 2026-10-28
