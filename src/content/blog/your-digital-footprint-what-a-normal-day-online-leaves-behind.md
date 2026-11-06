@@ -4,7 +4,7 @@ seoTitle: 'Your Digital Footprint: What a Normal Day Online Leaves Behi'
 description: 'Explore how your daily online activities create a digital footprint — from location pings to purchase records — and learn practical steps to check and shrink your data tr'
 pubDate: 2026-10-29
 category: privacy
-tags: ["privacy"]
+tags: ["privacy", "regulation"]
 cta: rumble
 faq:
   - q: 'What is a digital footprint?'
