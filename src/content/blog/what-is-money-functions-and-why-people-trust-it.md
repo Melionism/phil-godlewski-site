@@ -4,7 +4,7 @@ seoTitle: 'What Is Money? Functions, Trust & Dollar''s Global Role'
 description: 'Explore what money is, its three core functions, and why trust powers the US dollar''s global dominance as the world''s primary reserve currency.'
 pubDate: 2026-11-02
 category: future-of-money
-tags: ["future-of-money"]
+tags: ["future-of-money", "regulation"]
 cta: rumble
 faq:
   - q: 'What is money?'
