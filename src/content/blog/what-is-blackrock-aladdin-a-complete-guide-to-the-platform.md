@@ -20,7 +20,7 @@ faq:
 ---
 
 
-![](/content_images/6589640d7ef847508ae75ddf9ac38c63_J1kb7xE.webp)
+
 All right, guys, let's do the big one. What is BlackRock Aladdin? It's BlackRock's own software platform for investment and risk management. The company's annual report calls it "an end-to-end, SaaS solution for investment and risk management," used by BlackRock and by "a growing number of institutional and retail investors around the world" [1]. The name stands for Asset, Liability, Debt and Derivative Investment Network, and it goes back to 1988 [2].
 
 It's also big money. In 2025, BlackRock's technology services and subscription revenue hit $2.0 billion, up 24%, and Aladdin was the majority of it [3]. Here's how the platform works, what's inside it, who uses it, who competes with it, and where the criticism comes in.
@@ -58,7 +58,7 @@ Because that's what it was built for. The name itself lists what a big investor 
 Read about [blackrock aladdin products](/blog/blackrock-aladdin-products/).
 
 
-![What's in the Aladdin product family?](/content_images/b6eed977e6f34360ab0e8ed41cda3c67_8dNRW1d.webp)
+
 ## Who uses Aladdin?
 
 Asset managers, insurers, pension funds, banks and central banks. In 2017, BlackRock said more than 85 asset-manager clients ran about $18 trillion on it [10]. See [who uses blackrock aladdin](/blog/who-uses-blackrock-aladdin/).
@@ -72,7 +72,7 @@ BlackRock's 10-K says Aladdin competes with other risk analytics and investment 
 This isn't a "trust me" thing. This is "verify me." The criticism is real: one system used by so many big investors raises questions about shared risk and oversight. Europe's DORA rules "may potentially subject Aladdin to additional oversight," BlackRock itself says [3]. Read [blackrock aladdin criticism](/blog/blackrock-aladdin-criticism/), the [blackrock aladdin myths](/blog/blackrock-aladdin-myths/), and [what is blackrock](/blog/blackrock/) as a company.
 
 
-![What about limits, criticism and related topics?](/content_images/5746a292386344ce8fd7a2049251378b_wG7q0Ii.webp)
+
 ## FAQ
 
 **What is BlackRock Aladdin?** BlackRock's software platform for investment and risk management [1].
