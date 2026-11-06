@@ -1,5 +1,5 @@
 ---
-title: 'Trump''s ''Shadow Cabinet'': The People Named in the Theory and Their Public Record'
+title: 'Trumps Shadow Cabinet: People Named in the Theory and Their Record'
 seoTitle: 'Trump Shadow Cabinet: Named Officials & Public Records'
 description: 'Explore the named officials behind the Trump shadow cabinet theory, their public records after 2021, and the legal framework cited by researchers.'
 pubDate: 2026-10-30
