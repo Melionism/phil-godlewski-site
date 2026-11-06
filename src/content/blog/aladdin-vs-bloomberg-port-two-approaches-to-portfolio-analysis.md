@@ -4,7 +4,7 @@ seoTitle: 'Aladdin vs Bloomberg PORT: Portfolio Analysis Guide'
 description: 'Compare Aladdin and Bloomberg PORT for portfolio analysis. Learn key differences in scope, data, and typical users to choose the right investment platform.'
 pubDate: 2026-11-04
 category: blackrock-aladdin
-tags: ["blackrock-aladdin"]
+tags: ["blackrock-aladdin", "future-of-money"]
 cta: rumble
 faq:
   - q: 'What is Aladdin vs Bloomberg PORT?'
