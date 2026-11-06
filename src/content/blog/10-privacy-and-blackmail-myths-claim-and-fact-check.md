@@ -3,7 +3,7 @@ title: '10 Privacy and Blackmail Myths: Claim and Fact-Check'
 seoTitle: '10 Privacy & Blackmail Myths Debunked: Facts vs Fiction'
 description: 'Debunk 10 common privacy and blackmail myths with facts. Learn why incognito isn''t invisible, VPNs don''t guarantee anonymity, paying blackmailers doesn''t stop threats, an'
 pubDate: 2026-10-27
-category: technology
+category: privacy
 tags: ["privacy", "ai-in-practice", "regulation", "holder-access", "future-of-money"]
 cta: rumble
 faq:
