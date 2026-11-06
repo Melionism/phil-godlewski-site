@@ -20,7 +20,7 @@ faq:
 ---
 
 
-![](/content_images/36f973b85dca4876bc430301b72c29fd_p2Hw6jP.webp)
+
 All right, guys, people ask me this all the time: is devolution QAnon? Short answer: devolution grew in the same community, but it's a different thing. Q posted short anonymous drops from 2017 to 2020 [1]. Devolution is a signed, footnoted Substack series that started on July 2, 2021 [2][3].
 
 Some people call devolution "Q without Q." Here's the difference between devolution and QAnon, laid out side by side.
@@ -76,7 +76,7 @@ That's a gap of more than 18 months. Devolution Part 1 appeared on July 2, 2021,
 | Aug 10, 2023 | — | Part 25 published [13] |
 
 
-![How did followers move between them?](/content_images/80710fb189ef4e538523b11d6081beaa_2PCaG6E.webp)
+
 ## What did each one promise, and when?
 
 Both made promises. They just used different words. Here they are in order:
@@ -107,7 +107,7 @@ Because you check them differently. A Q post is a riddle you decode. A devolutio
 It also changes how you read the timeline. Follow the [devolution theory timeline](/blog/devolution-theory-timeline/) to see how its claims moved from 2020 to 2024. For the words each side uses, see our [devolution theory glossary](/blog/devolution-theory-glossary/).
 
 
-![Why does the distinction matter?](/content_images/6589640d7ef847508ae75ddf9ac38c63_UTNJ7Oh.webp)
+
 ## FAQ
 
 **Is devolution QAnon?** It grew in the same community, but it has its own author, format and documents [3][9].
