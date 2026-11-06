@@ -20,7 +20,7 @@ faq:
 ---
 
 
-![](/content_images/4346abea8a3f45619f17a8a1ac6a4654_KIVkGuG.webp)
+
 All right, guys, if you're new to this, the words alone can lose you. This devolution theory glossary covers 24 terms you'll hear on every show, with where each one comes from. It doubles as a QAnon glossary for the words the two share. Some come from Q, some from Patel Patriot's devolution series, and some straight from government documents [1][2][3].
 
 Bookmark this page. You'll come back to it.
@@ -66,7 +66,7 @@ These are the terms for how the operation supposedly works.
 > **Don't miss the next one:** when a new term starts going around, I break it down live. Follow me on my channels below, so we're on the same wave.
 
 
-![Words for the plan](/content_images/80710fb189ef4e538523b11d6081beaa_43NYUHS.webp)
+
 ## Words for the show
 
 These describe the idea that what we see on TV is staged.
@@ -93,7 +93,7 @@ These come straight from the paperwork the series cites. You can open most of th
 | Q post / drop | A numbered post by Q; 4,953 by December 8, 2020 | qalerts.app [10] |
 
 
-![Words for the documents](/content_images/9f6d58e8a298478d9216de094802eedf.webp)
+
 ## How to use this glossary
 
 Three habits make it work. First, check where a term comes from: Q, the series or a government document. Second, open the source and read the term in its own sentence. Third, note the date, because the same word can shift over the years.
@@ -105,7 +105,7 @@ Do you remember the order these words came in? Q's terms came first, from 2017 t
 That's the key difference between the two, and it's why we cover [devolution vs qanon](/blog/devolution-vs-qanon/) on its own page. The terms also mean different things in different versions of the story. Compare the [shadow presidency theory versions](/blog/shadow-presidency-theory-versions/) to see who plays which role.
 
 
-![How do the terms connect?](/content_images/0409647e37eb414b8d9fbbf12a4d32a3_eAeW2ZP.webp)
+
 ## FAQ
 
 **What is a devolution theory glossary?** A list of the terms used in the devolution series and the community around it, with their sources [1][2].
