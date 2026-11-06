@@ -20,7 +20,7 @@ faq:
 ---
 
 
-![](/content_images/0409647e37eb414b8d9fbbf12a4d32a3_9AhxVV0.webp)
+
 All right, guys, let's go back to the beginning. The history of BlackRock Aladdin starts in 1988. That year, eight people, including Larry Fink and Rob Kapito, founded BlackRock [1], and Aladdin was first launched [2]. The firm started as a boutique fixed income manager [1]. Today Aladdin is the core of a technology business that brought in $2.0 billion in 2025 [3].
 
 When was Aladdin created? 1988. Here's the founders' risk problem, the first system, the opening to outside clients, and where it stands today.
@@ -65,7 +65,7 @@ I need you to see how far it went. "Aladdin Enterprise is the Company's propriet
 This isn't a "trust me" thing. This is "verify me." Every date above has a source you can open.
 
 
-![What is Aladdin today?](/content_images/b6eed977e6f34360ab0e8ed41cda3c67_zEb2tZ3.webp)
+
 ## FAQ
 
 **What is the history of BlackRock Aladdin?** Launched in 1988 as an in-house tool, later sold to other firms [2][4].
