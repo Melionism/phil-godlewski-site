@@ -3,7 +3,7 @@ title: 'Threat Modeling for Ordinary People: What to Protect and From Whom'
 seoTitle: 'Threat Modeling for Ordinary People: What to Protect'
 description: 'Learn threat modeling for everyday people: identify what to protect, who you''re protecting it from, and how much effort it''s worth. Based on EFF''s six-question framework.'
 pubDate: 2026-10-27
-category: technology
+category: privacy
 tags: ["privacy", "ai-in-practice"]
 cta: rumble
 faq:
