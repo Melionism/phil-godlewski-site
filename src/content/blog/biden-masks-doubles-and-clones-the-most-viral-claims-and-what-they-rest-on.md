@@ -1,5 +1,5 @@
 ---
-title: 'Biden Masks, Doubles and Clones: The Most Viral Claims and What They Rest On'
+title: 'Biden Masks, Doubles and Clones: The Most Viral Claims'
 seoTitle: 'Biden Masks, Doubles & Clones: Viral Claims Debunked'
 description: 'Examining the viral Biden mask, body double, and clone conspiracy theories, including the May 2025 Trump reshare and how photos fuel these claims.'
 pubDate: 2026-11-04
