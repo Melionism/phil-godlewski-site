@@ -1,5 +1,5 @@
 ---
-title: 'What Counts as Election Fraud Evidence: Suspicion, Anomaly, Proof and Rulings'
+title: 'What Counts as Election Fraud Evidence: Suspicion vs Proof'
 seoTitle: 'What Counts as Election Fraud Evidence: Proof Standards'
 description: 'Explore the legal standards for election fraud evidence, distinguishing between suspicion, anomalies, and court-admissible proof with real-world examples.'
 pubDate: 2026-10-28
