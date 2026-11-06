@@ -2,7 +2,7 @@
 title: 'BlackRock Aladdin in Simple Terms: One Portfolio, Step by Step'
 seoTitle: 'BlackRock Aladdin Explained Simply: One Portfolio Walkthroug'
 description: 'BlackRock Aladdin explained simply: a step-by-step walkthrough of how the platform handles risk analytics, portfolio management, and trade execution using a sample pensio'
-pubDate: 2026-11-06
+pubDate: 2026-10-26
 category: technology
 tags: ["blackrock-aladdin", "ai-in-practice", "regulation"]
 cta: rumble
@@ -20,7 +20,7 @@ faq:
 ---
 
 
-![](/content_images/0409647e37eb414b8d9fbbf12a4d32a3_ehReo6D.webp)
+
 All right, guys, here's BlackRock Aladdin explained simply, with one made-up portfolio. Think of Aladdin as a giant dashboard. It reads what a fund owns, measures what could go wrong, checks the rules and helps place trades. BlackRock's 10-K lists those jobs: "risk analytics, portfolio management, trade execution, and investment operations" [1]. What it doesn't do is decide for the manager.
 
 This is Aladdin for beginners. Let's walk one portfolio through it.
@@ -71,7 +71,7 @@ Everything that matters. I need you to hear this one: Aladdin shows the risk. It
 This isn't a "trust me" thing. This is "verify me." Ask any tool what it measures and who makes the call.
 
 
-![What does the manager still decide?](/content_images/7cfe4d66e49947a5b936d5e75afbaf7e_HxFp9ev.webp)
+
 ## FAQ
 
 **What is BlackRock Aladdin, explained simply?** A dashboard for risk, rules and trading used by big investors [1].
