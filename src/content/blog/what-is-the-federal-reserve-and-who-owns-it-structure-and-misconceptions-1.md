@@ -1,5 +1,5 @@
 ---
-title: 'What Is the Federal Reserve and Who Owns It? Structure and Misconceptions'
+title: 'The Federal Reserve: Structure, Ownership, and Myths'
 seoTitle: 'Federal Reserve Explained: Structure, Ownership & Myths'
 description: 'Discover how the Federal Reserve works, who really owns it, and why it''s not a private bank. Clear breakdown of structure, profits, and common myths.'
 pubDate: 2026-11-09
