@@ -20,7 +20,7 @@ faq:
 ---
 
 
-![](/content_images/b6eed977e6f34360ab0e8ed41cda3c67_RR9OoEc.webp)
+
 All right, guys, let's put it all in order. The history of devolution theory runs from a Newsweek report on March 18, 2020 to Trump's second inaugural address on January 20, 2025 [1][2]. In between: 25 numbered parts, 5 addenda and a lot of dates that moved [3].
 
 This devolution theory timeline goes year by year. Each line has a source you can open.
@@ -66,7 +66,7 @@ Do you remember January 20, 2021? At Joint Base Andrews, Trump said: "We will be
 > **Don't miss the next one:** every new date gets broken down on my show. Follow me on my channels below, so we're on the same wave when it hits.
 
 
-![2021: the theory takes shape](/content_images/abbba52b71814c488e0f3d61b8dfcb4a.webp)
+
 ## 2022–2023: expansion and new promises
 
 The series grew wider. Parts 16 to 23 came out in 2022, with titles like "To Xi, or not to Xi?" and "2000 Mules" [3][7]. The Introduction, posted April 6, 2022, became the entry point for new readers [9].
@@ -90,7 +90,7 @@ On September 9, 2024, Biden continued the EO 13848 national emergency again, bey
 On my July 19, 2026 show I talked about Trump's announcement on 2020 election fraud: "we've been waiting for that for years" [21]. For where it all began, go back to [the first Substack posts](/blog/patel-patriot-devolution-origin/). And see [how the theory differs from QAnon](/blog/devolution-vs-qanon/), which kept its own clock.
 
 
-![2024 and what came after](/content_images/3a62865ac09c4bd7ab6ffe02110dfc7d_TR2rbSR.webp)
+
 ## Which parts came out in which year?
 
 Here's the whole series by year, based on the Substack archive and the series index [3][7][8]. Parts 1 to 15 are not in the 2022 or 2023 archive, so they fall in 2021.
@@ -117,7 +117,7 @@ This isn't a "trust me" thing. This is "verify me." Put the key lines side by si
 That's the arc in six lines. From certainty in 2021 to caution by 2023.
 
 
-![How did the wording change?](/content_images/36f973b85dca4876bc430301b72c29fd_pJ9VM7a.webp)
+
 ## FAQ
 
 **What is the devolution theory timeline?** The order of events from the March 2020 Newsweek report to Trump's January 2025 inauguration [1][2].
