@@ -22,7 +22,7 @@ faq:
 ---
 
 
-![](/content_images/544d4e475b3140e89b6772140d7112c3_1WPgJ8a.webp)
+
 All right, guys, let's start with the name, because the name already tells you a lot. What does Aladdin stand for at BlackRock? It's an acronym: Asset, Liability, Debt and Derivative Investment Network [1]. BlackRock first launched it in 1988 [1], the same year the firm itself got started. Today the company's annual report calls it "an end-to-end, SaaS solution for investment and risk management" [2].
 
 Here's something I want you to notice. BlackRock's own Aladdin page never spells the acronym out. It just calls Aladdin "a tech platform that unifies the investment management process through a common data language" [3]. So let's spell it out ourselves, word by word, and see what the name tells you and what it doesn't.
@@ -65,7 +65,7 @@ I need you to see why those four words sit side by side. A pension fund doesn't 
 > **Don't miss the next one:** when there's news on BlackRock or Aladdin, I go through it live. Follow me on my channels below, so we're on the same wave.
 
 
-![What does each word mean?](/content_images/bc4af5f4b06b4d51baa431bf9838a425_OpyLMdR.webp)
+
 ## Why does the name matter?
 
 Because it tells you what the system was built for: risk. Not picking hot stocks. Not running the world. Measuring what you own against what you owe, across debt and derivatives, in one place.
@@ -94,7 +94,7 @@ A lot. This isn't a "trust me" thing. This is "verify me." Here's what the seven
 I get it, I get it. The name sounds like a genie, and a lot of people in our community see Aladdin as the machine behind the curtain. That's exactly why it's worth starting with what the letters really say.
 
 
-![What doesn't the name tell you?](/content_images/5746a292386344ce8fd7a2049251378b_WU5AGrg.webp)
+
 ## FAQ
 
 **What does Aladdin stand for at BlackRock?** Asset, Liability, Debt and Derivative Investment Network [1].
