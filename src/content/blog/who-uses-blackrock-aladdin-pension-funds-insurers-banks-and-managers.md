@@ -1,5 +1,5 @@
 ---
-title: 'Who Uses BlackRock Aladdin? Pension Funds, Insurers, Banks and Managers'
+title: 'Who Uses BlackRock Aladdin? Pension Funds and Insurers'
 seoTitle: 'Who Uses BlackRock Aladdin? Client Types & Scale'
 description: 'Discover who uses BlackRock Aladdin: asset managers, insurers, pension funds, banks, and central banks like the Bank of Israel managing $208B in reserves.'
 pubDate: 2026-11-01
