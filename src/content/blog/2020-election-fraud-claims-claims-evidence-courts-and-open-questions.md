@@ -1,5 +1,5 @@
 ---
-title: '2020 Election Fraud Claims: Claims, Evidence, Courts and Open Questions'
+title: '2020 Election Fraud Claims: Evidence, Courts and Open Questions'
 seoTitle: '2020 Election Fraud Claims: Evidence, Courts & Open Question'
 description: 'A comprehensive, evidence-based analysis of 2020 election fraud claims, court rulings, official findings, and remaining open questions six years later.'
 pubDate: 2026-10-28
