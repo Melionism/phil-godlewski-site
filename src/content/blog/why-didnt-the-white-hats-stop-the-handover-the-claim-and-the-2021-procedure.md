@@ -1,5 +1,5 @@
 ---
-title: 'Why Didn''t the White Hats Stop the Handover? The Claim and the 2021 Procedure'
+title: 'Why Didnt the White Hats Stop the Handover? The Claim Explained'
 seoTitle: 'Why White Hats Didn''t Stop 2021 Handover: Theory & Law'
 description: 'Explores why white hats conspiracy theorists claim the 2021 presidential handover wasn''t stopped, examining legal procedures, inauguration events, and devolution theory c'
 pubDate: 2026-10-30
