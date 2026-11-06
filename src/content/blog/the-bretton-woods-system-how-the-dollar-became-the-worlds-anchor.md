@@ -4,7 +4,7 @@ seoTitle: 'Bretton Woods System: Dollar as Global Anchor'
 description: 'Explore the 1944 Bretton Woods Agreement that pegged currencies to the US dollar and gold at $35/ounce, creating the IMF and World Bank, and its collapse in 1971.'
 pubDate: 2026-11-05
 category: future-of-money
-tags: ["future-of-money"]
+tags: ["future-of-money", "regulation"]
 cta: rumble
 faq:
   - q: 'What was Bretton Woods?'
