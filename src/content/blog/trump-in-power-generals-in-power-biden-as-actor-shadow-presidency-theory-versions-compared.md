@@ -1,8 +1,8 @@
 ---
-title: 'Trump in Power, Generals in Power, Biden as Actor: Shadow Presidency Theory Versions Compared'
+title: 'Shadow Presidency Theory Versions: Trump, Generals, Biden Compared'
 seoTitle: 'Shadow Presidency Theories Compared: Trump, Military, or Act'
 description: 'Compares three shadow presidency theories explaining who really held power from 2021-2025: Trump loyalists, military commanders, or a figurehead Biden.'
-pubDate: 2026-11-06
+pubDate: 2026-10-26
 category: ai
 tags: ["elections-power", "shadow-power", "regulation", "ai-in-practice", "q-codes"]
 cta: rumble
