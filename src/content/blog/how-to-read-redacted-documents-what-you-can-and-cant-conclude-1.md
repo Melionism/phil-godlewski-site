@@ -3,7 +3,7 @@ title: 'How to Read Redacted Documents: What You Can and Can''t Conclude'
 seoTitle: 'How to Read Redacted Documents: What You Can & Can''t Conclud'
 description: 'Learn how to interpret redacted documents, understand redaction reasons like national security and privacy, and avoid common mistakes when analyzing censored government f'
 pubDate: 2026-11-08
-category: politics
+category: election-2020
 tags: ["2020-election", "regulation", "media-critics"]
 cta: rumble
 faq:
