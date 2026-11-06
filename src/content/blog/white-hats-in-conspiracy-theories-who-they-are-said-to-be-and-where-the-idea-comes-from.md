@@ -1,5 +1,5 @@
 ---
-title: 'White Hats in Conspiracy Theories: Who They Are Said to Be and Where the Idea Comes From'
+title: 'White Hats in Conspiracy Theories: Who They Are and Where the Idea Comes From'
 seoTitle: 'White Hats Conspiracy Theory: Origins, QAnon & Devolution Ex'
 description: 'Explores the ''white hats'' conspiracy theory — patriots inside government and military allegedly fighting a hidden corrupt network — tracing its origins from western films'
 pubDate: 2026-10-30
