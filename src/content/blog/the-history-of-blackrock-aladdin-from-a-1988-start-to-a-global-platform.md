@@ -1,8 +1,8 @@
 ---
-title: 'The History of BlackRock Aladdin: From a 1988 Start to a Global Platform'
+title: 'History of BlackRock Aladdin: From 1988 Start to Global Platform'
 seoTitle: 'BlackRock Aladdin History: 1988 to Global Platform'
 description: 'Explore the history of BlackRock Aladdin from its 1988 launch to today''s global platform managing $2B+ in tech revenue.'
-pubDate: 2026-11-06
+pubDate: 2026-10-26
 category: technology
 tags: ["blackrock-aladdin", "future-of-money"]
 cta: rumble
