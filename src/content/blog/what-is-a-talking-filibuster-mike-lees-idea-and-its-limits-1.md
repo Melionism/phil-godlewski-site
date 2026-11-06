@@ -3,7 +3,7 @@ title: 'What Is a Talking Filibuster? Mike Lee''s Idea and Its Limits'
 seoTitle: 'What Is a Talking Filibuster? Mike Lee''s Plan and Why It Fai'
 description: 'Sen. Mike Lee pushed a talking filibuster to force Democrats to hold the floor and talk out their opposition to the SAVE America Act. Majority Leader John Thune resisted,'
 pubDate: 2026-11-08
-category: politics
+category: midterms-2026
 tags: ["elections-power", "regulation"]
 cta: rumble
 faq:
