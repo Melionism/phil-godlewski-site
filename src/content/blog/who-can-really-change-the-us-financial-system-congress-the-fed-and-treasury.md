@@ -3,7 +3,7 @@ title: 'Who Can Change the US Financial System? Congress, Fed and Treasury'
 seoTitle: 'Who Controls the US Financial System? Congress, Fed & Treasu'
 description: 'Who really controls the US financial system? Congress writes laws, the Fed sets monetary policy, Treasury manages debt. Learn how real change happens through legislation'
 pubDate: 2026-10-27
-category: technology
+category: future-of-money
 tags: ["regulation", "future-of-money"]
 cta: rumble
 faq:
