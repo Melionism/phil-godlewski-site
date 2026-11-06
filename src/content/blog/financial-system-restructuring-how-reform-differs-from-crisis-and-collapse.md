@@ -1,6 +1,5 @@
 ---
-title: 'Financial System Restructuring: How Reform Differs From Crisis and Collapse'
-seoTitle: 'Financial System Restructuring: Reform vs Crisis vs Collapse'
+title: 'Financial System Restructuring: Reform vs Crisis vs Collapse'
 description: 'Explains the differences between financial reform, crisis, and collapse using historical examples like Bretton Woods and 2008.'
 pubDate: 2026-10-29
 category: future-of-money
