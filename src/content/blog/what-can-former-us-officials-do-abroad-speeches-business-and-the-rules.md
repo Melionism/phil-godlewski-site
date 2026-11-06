@@ -1,5 +1,5 @@
 ---
-title: 'What Can Former US Officials Do Abroad? Speeches, Business and the Rules'
+title: 'What Can Former US Officials Do Abroad? The Rules'
 seoTitle: 'Former US Officials Foreign Travel Rules Explained'
 description: 'Explore the legal boundaries for former US officials traveling abroad, including paid speeches, business activities, and meetings with foreign leaders under three key fed'
 pubDate: 2026-11-01
