@@ -4,7 +4,7 @@ seoTitle: '''I Have Nothing to Hide'': Why This Argument Fails on Privacy'
 description: 'The ''nothing to hide'' argument assumes privacy only matters for criminals. Learn why privacy is about data control and power, not guilt, with examples from medical record'
 pubDate: 2026-10-27
 category: technology
-tags: ["privacy"]
+tags: ["privacy", "regulation"]
 cta: rumble
 faq:
   - q: 'What is the nothing to hide argument?'
