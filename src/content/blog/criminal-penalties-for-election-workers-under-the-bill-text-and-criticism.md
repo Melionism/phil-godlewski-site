@@ -1,5 +1,5 @@
 ---
-title: 'Criminal Penalties for Election Workers Under the Bill: Text and Criticism'
+title: 'Criminal Penalties for Election Workers Under the Bill'
 seoTitle: 'SAVE Act Criminal Penalties for Election Workers Explained'
 description: 'The SAVE America Act imposes criminal penalties on election workers who register voters without documentary proof of citizenship, even if the applicant is a U.S. citizen.'
 pubDate: 2026-11-03
