@@ -2,7 +2,7 @@
 title: 'White Hats, Cabal, Central Casting: A Devolution Theory Glossary'
 seoTitle: 'Devolution Theory Glossary: 24 Terms Explained'
 description: 'A glossary of 24 key terms from devolution theory and QAnon, defining ''white hats,'' ''cabal,'' ''the plan,'' and ''devolution'' with sources from Q drops, Patel Patriot, and go'
-pubDate: 2026-11-06
+pubDate: 2026-10-26
 category: technology
 tags: ["q-codes", "media-critics", "regulation", "shadow-power"]
 cta: rumble
