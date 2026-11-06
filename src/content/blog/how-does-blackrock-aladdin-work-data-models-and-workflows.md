@@ -20,7 +20,7 @@ faq:
 ---
 
 
-![](/content_images/4dd796dde007472bac6eab40b404b1ce_yGysGEk.webp)
+
 All right, guys, let's open the hood. How does BlackRock Aladdin work? In short: it takes in a firm's positions and market data, runs them through risk models, and puts the results, the rule checks and the trading tools on one screen. BlackRock's 10-K says it provides "risk analytics, portfolio management, trade execution, and investment operations" [1]. BlackRock's own page calls it a platform built on "a common data language" [2].
 
 Here's the path from data to decisions, the name, how it grew, one portfolio as an example, and what ties it all to risk.
@@ -65,7 +65,7 @@ From an in-house tool in 1988 to a product sold to other firms [5][1]. In 2020, 
 Say a pension fund owns stocks, bonds and some swaps. Aladdin shows what it all is worth, how it would move if rates jump, and whether any rule is about to be broken. The Bank of Israel used it to study Russia–Ukraine risk with stress scenarios [4]. Read [blackrock aladdin explained simply](/blog/blackrock-aladdin-explained-simply/).
 
 
-![What does one portfolio look like on it?](/content_images/0409647e37eb414b8d9fbbf12a4d32a3_ymWQ3zf.webp)
+
 ## What ties the platform to risk analytics?
 
 I need you to see this: the architecture is built around risk. BlackRock's 10-K says its edge comes partly from combining "risk analytics with portfolio management" in one platform [1]. See [what the numbers actually capture](/blog/aladdin-risk-management/).
