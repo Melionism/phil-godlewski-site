@@ -1,5 +1,5 @@
 ---
-title: 'Name or Address Changes and Proof of Citizenship: Who Might Need a New Check'
+title: 'Name or Address Changes and Proof of Citizenship to Vote'
 seoTitle: 'Name Changes, Address Moves & Proof of Citizenship: What You'
 description: 'Learn how name and address changes affect proof-of-citizenship rules under the SAVE Act, and what documents you need to keep your voter registration valid.'
 pubDate: 2026-11-03
