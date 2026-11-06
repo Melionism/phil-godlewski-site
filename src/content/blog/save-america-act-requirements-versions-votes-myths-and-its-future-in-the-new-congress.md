@@ -1,5 +1,5 @@
 ---
-title: 'SAVE America Act Requirements: Versions, Votes, Myths and Its Future in the New Congress'
+title: 'SAVE America Act: Requirements, Versions, Votes and Future'
 seoTitle: 'SAVE America Act: Requirements, Votes & Future Explained'
 description: 'Complete breakdown of the SAVE America Act: citizenship proof requirements, voter ID rules, House vote results, Senate stalling, and what happens next in the new Congress'
 pubDate: 2026-10-31
