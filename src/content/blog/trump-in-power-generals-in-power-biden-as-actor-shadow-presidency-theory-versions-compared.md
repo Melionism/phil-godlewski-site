@@ -3,7 +3,7 @@ title: 'Shadow Presidency Theory Versions: Trump, Generals, Biden Compared'
 seoTitle: 'Shadow Presidency Theories Compared: Trump, Military, or Act'
 description: 'Compares three shadow presidency theories explaining who really held power from 2021-2025: Trump loyalists, military commanders, or a figurehead Biden.'
 pubDate: 2026-10-26
-category: ai
+category: politics
 tags: ["elections-power", "shadow-power", "regulation", "ai-in-practice", "q-codes"]
 cta: rumble
 faq:
