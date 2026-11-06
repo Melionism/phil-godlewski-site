@@ -4,7 +4,7 @@ seoTitle: 'US Power After 2026 Midterms: Complete Guide & FAQ'
 description: 'Democrats won House and Senate in 2026 midterms, gaining control of Congress from January 2027. Trump remains president until 2029 with veto power. Complete guide to powe'
 pubDate: 2026-10-28
 category: midterms-2026
-tags: ["elections-power"]
+tags: ["elections-power", "media-critics"]
 cta: rumble
 faq:
   - q: 'Who won the 2026 midterms?'
