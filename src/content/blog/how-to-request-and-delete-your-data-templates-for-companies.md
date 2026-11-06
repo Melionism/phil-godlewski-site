@@ -4,7 +4,7 @@ seoTitle: 'How to Request & Delete Your Data: Free Templates for Compan'
 description: 'Learn how to request and delete your personal data with templates for companies. Understand your rights under CCPA, GDPR, and state privacy laws to control your informati'
 pubDate: 2026-11-02
 category: privacy
-tags: ["privacy"]
+tags: ["privacy", "regulation"]
 cta: rumble
 faq:
   - q: 'What is a data subject access request?'
