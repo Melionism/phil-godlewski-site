@@ -1,5 +1,5 @@
 ---
-title: 'Did Pompeo Visit China After the 2020 Election? What His Last Trips Show'
+title: 'Did Pompeo Visit China After the 2020 Election?'
 seoTitle: 'Did Pompeo Visit China After the 2020 Election? Fact Check'
 description: 'Fact-check on whether Mike Pompeo visited China after the 2020 election. His final trip as Secretary of State skipped China entirely, and Beijing sanctioned him on Inaugu'
 pubDate: 2026-11-01
