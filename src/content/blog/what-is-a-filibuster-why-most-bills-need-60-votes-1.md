@@ -3,7 +3,7 @@ title: 'What Is a Filibuster? Why Most Bills Need 60 Votes'
 seoTitle: 'What Is a Filibuster? The 60-Vote Rule Explained'
 description: 'Understand the filibuster: why most Senate bills need 60 votes, how cloture works, and the 2026 SAVE America Act example.'
 pubDate: 2026-11-07
-category: politics
+category: midterms-2026
 tags: ["elections-power", "regulation"]
 cta: rumble
 faq:
