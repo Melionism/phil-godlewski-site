@@ -2,7 +2,7 @@
 title: 'Voter ID vs Proof of Citizenship: Why They''re Different Requirements'
 seoTitle: 'Voter ID vs Proof of Citizenship: Key Differences Explained'
 description: 'Understand the difference between voter ID and proof of citizenship requirements. Learn which states enforce each and what documents qualify.'
-pubDate: 2026-11-17
+pubDate: 2026-11-18
 category: midterms-2026
 tags: ["elections-power", "2020-election"]
 cta: rumble
