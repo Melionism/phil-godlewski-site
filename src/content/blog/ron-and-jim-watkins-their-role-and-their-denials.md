@@ -3,6 +3,7 @@ title: 'Ron and Jim Watkins: Their Role and Their Denials'
 seoTitle: 'Ron & Jim Watkins: 8chan Owners & QAnon Denials'
 description: 'Explore the Watkins family''s role in QAnon through their ownership of 8chan/8kun, linguistic analysis linking Ron Watkins to Q posts, and their persistent denials.'
 pubDate: 2026-11-22
+category: q-codes
 tags: ["q-codes", "2020-election", "ai-in-practice", "media-critics", "future-of-money"]
 cta: rumble
 faq:
