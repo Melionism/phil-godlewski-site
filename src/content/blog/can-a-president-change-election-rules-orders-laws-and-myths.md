@@ -2,7 +2,7 @@
 title: 'Can a President Change Election Rules? Orders, Laws and Myths'
 seoTitle: 'Can a President Change Election Rules? Orders, Laws & Myths'
 description: 'Can a president change election rules? Not alone. States and Congress set election laws; executive orders face court blocks. Explore the 2025 & 2026 orders, Constitution,'
-pubDate: 2026-11-25
+pubDate: 2026-11-26
 category: midterms-2026
 tags: ["2020-election", "elections-power", "regulation"]
 cta: rumble
