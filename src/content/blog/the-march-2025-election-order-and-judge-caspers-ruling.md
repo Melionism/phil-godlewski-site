@@ -2,7 +2,7 @@
 title: 'The March 2025 Election Order and Judge Casper''s Ruling'
 seoTitle: 'Trump EO 14248: Judge Casper''s Election Order Rulings Explai'
 description: 'Analysis of Trump''s Executive Order 14248 on election integrity, Judge Casper''s preliminary and permanent injunctions blocking key provisions, and the legal battle over c'
-pubDate: 2026-11-26
+pubDate: 2026-11-27
 category: midterms-2026
 tags: ["2020-election", "regulation"]
 cta: rumble
