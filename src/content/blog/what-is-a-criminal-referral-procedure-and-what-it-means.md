@@ -2,7 +2,7 @@
 title: 'What Is a Criminal Referral? Procedure and What It Means'
 seoTitle: 'What Is a Criminal Referral? Process, Charges & Limits'
 description: 'Learn what a criminal referral is, how it works, and why it does not guarantee charges. Plain-English guide to the DOJ process, Congress referrals, and statutes of limita'
-pubDate: 2026-11-26
+pubDate: 2026-11-27
 category: election-2020
 tags: ["regulation", "elections-power", "2020-election"]
 cta: rumble
